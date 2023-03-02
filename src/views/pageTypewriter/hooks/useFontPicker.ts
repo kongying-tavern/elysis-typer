@@ -16,7 +16,14 @@ const fontTree: Tree[] = [
   {
     id: "genshin",
     label: "原神",
-    children: [{ id: "font-teyvat-regular", label: "提瓦特文字" }],
+    children: [
+      { id: "font-teyvat-regular", label: "提瓦特文字" },
+      { id: "font-khaenriah-regular", label: "坎瑞亚文字" },
+      { id: "font-khaenriah-chasm", label: "坎瑞亚文字 - 层岩巨渊变体" },
+      { id: "font-inazuma-regular", label: "稻妻文字" },
+      { id: "font-sumeru-regular", label: "须弥文字" },
+      { id: "font-deshret-regular", label: "赤冠文字" },
+    ],
   },
   {
     id: "starrail",
