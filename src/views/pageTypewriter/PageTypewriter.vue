@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import FontPicker from "./components/FontPicker.vue";
+import TextInput from "./components/TextInput.vue";
 </script>
 
 <template>
@@ -8,8 +9,10 @@ import FontPicker from "./components/FontPicker.vue";
       <FontPicker></FontPicker>
     </div>
     <div class="flex-3 flex flex-col">
-      <div class="flex-1" style="background-color: orange">text-preview</div>
-      <div class="flex-1" style="background-color: green">text-input</div>
+      <div class="flex-auto" style="background-color: orange">text-preview</div>
+      <div class="flex-none">
+        <TextInput></TextInput>
+      </div>
     </div>
     <div class="flex-2">character-picker</div>
   </main>
