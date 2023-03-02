@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FontPicker from "./components/FontPicker/FontPicker.vue";
+import FontPicker from "./components/FontPicker.vue";
 </script>
 
 <template>
