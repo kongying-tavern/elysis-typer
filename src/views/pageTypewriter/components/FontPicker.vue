@@ -5,7 +5,7 @@ import type {
 } from "element-plus/es/components/tree-v2/src/types";
 import { useFontPicker } from "../hooks";
 
-const { fontVariants, fontProps, update } = useFontPicker();
+const { fontTree, fontProps, update } = useFontPicker();
 
 const fontExpandKeys: string[] = ["genshin", "starrail", "zzz"];
 
@@ -18,7 +18,7 @@ const fontSwitcher = (data: TreeNodeData, node: TreeNode): void => {
 
 <template>
   <el-tree-v2
-    :data="fontVariants"
+    :data="fontTree"
     :props="fontProps"
     :default-expanded-keys="fontExpandKeys"
     :highlight-current="true"

@@ -47,5 +47,5 @@ export const useFontPicker = () => {
     font.value = fontKey;
   };
 
-  return { fontPickerProps: fontProps, fontVariants: fontTree, font, update };
+  return { fontProps, fontTree, font, update };
 };
