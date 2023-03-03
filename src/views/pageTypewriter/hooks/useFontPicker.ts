@@ -1,4 +1,4 @@
-import type { TreeOptionProps } from "element-plus/es/components/tree-v2/src/types";
+import type { TreeOptionProps } from "element-plus/es/components/tree/src/tree.type";
 
 interface Tree {
   id: string;
@@ -6,8 +6,11 @@ interface Tree {
   children?: Tree[];
 }
 
+const font = ref("font-teyvat-regular");
+
+const fontKey: string = "id";
+
 const fontProps: TreeOptionProps = {
-  value: "id",
   label: "label",
   children: "children",
 };
@@ -40,12 +43,10 @@ const fontTree: Tree[] = [
   },
 ];
 
-const font = ref("font-teyvat-regular");
-
 export const useFontPicker = () => {
   const update = (fontKey: string) => {
     font.value = fontKey;
   };
 
-  return { fontProps, fontTree, font, update };
+  return { font, fontKey, fontProps, fontTree, update };
 };

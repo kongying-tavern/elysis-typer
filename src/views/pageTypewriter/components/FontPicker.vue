@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import type {
-  TreeNode,
-  TreeNodeData,
-} from "element-plus/es/components/tree-v2/src/types";
+import type { TreeNodeData } from "element-plus/es/components/tree/src/tree.type";
+import type Node from "element-plus/es/components/tree/src/model/node";
 import { useFontPicker } from "../hooks";
 
-const { fontTree, fontProps, update } = useFontPicker();
+const { fontKey, fontProps, fontTree, update } = useFontPicker();
 
 const fontExpandKeys: string[] = ["genshin", "starrail", "zzz"];
 
-const fontSwitcher = (data: TreeNodeData, node: TreeNode): void => {
+const fontSwitcher = (data: TreeNodeData, node: Node): void => {
   if (node.isLeaf) {
     update(data.id);
   }
@@ -17,12 +15,19 @@ const fontSwitcher = (data: TreeNodeData, node: TreeNode): void => {
 </script>
 
 <template>
-  <el-tree-v2
+  <el-tree
     :data="fontTree"
+    :node-key="fontKey"
     :props="fontProps"
     :default-expanded-keys="fontExpandKeys"
-    :highlight-current="true"
     @current-change="fontSwitcher"
   >
-  </el-tree-v2>
+  </el-tree>
 </template>
+
+<style lang="scss" scoped>
+.active {
+  color: #f17bd8;
+  font-weight: bold;
+}
+</style>
