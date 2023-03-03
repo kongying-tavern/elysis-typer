@@ -6,10 +6,10 @@ import TextInput from "./components/TextInput.vue";
 
 <template>
   <main class="fixed top-0 bottom-0 left-0 right-0 flex flex-row">
-    <div class="flex-1">
+    <div class="flex-1 p-3">
       <FontPicker></FontPicker>
     </div>
-    <div class="flex-3 flex flex-col">
+    <div class="flex-3 flex flex-col p-3 pl-0 space-y-3">
       <div class="flex-auto">
         <TextPreview></TextPreview>
       </div>
