@@ -31,7 +31,11 @@ const fontTree: Tree[] = [
   {
     id: "starrail",
     label: "崩坏·星穹铁道",
-    children: [{ id: "font-starrail-regular", label: "星穹铁道文字" }],
+    children: [
+      { id: "font-starrail-regular", label: "常规" },
+      { id: "font-starrail-thin", label: "细体" },
+      { id: "font-starrail-bold", label: "粗体" },
+    ],
   },
   {
     id: "zzz",
