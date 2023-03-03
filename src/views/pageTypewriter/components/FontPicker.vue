@@ -3,7 +3,7 @@ import type { TreeNodeData } from "element-plus/es/components/tree/src/tree.type
 import type Node from "element-plus/es/components/tree/src/model/node";
 import { useFontPicker } from "../hooks";
 
-const { fontKey, fontProps, fontTree, update } = useFontPicker();
+const { font, fontKey, fontProps, fontTree, update } = useFontPicker();
 
 const fontExpandKeys: string[] = ["genshin", "starrail", "zzz"];
 
@@ -22,6 +22,9 @@ const fontSwitcher = (data: TreeNodeData, node: Node): void => {
     :default-expanded-keys="fontExpandKeys"
     @current-change="fontSwitcher"
   >
+    <template #default="{ node }">
+      <span :class="{ active: node.key === font }">{{ node.label }}</span>
+    </template>
   </el-tree>
 </template>
 
