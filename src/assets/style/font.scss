@@ -1,0 +1,90 @@
+@use "sass:map";
+
+@mixin fonts($deep: true) {
+    $fonts: (
+        "genshin": (
+            (
+                "key": "teyvat-regular",
+                "path": "genshin/TeyvatNeue-Regular-1.002.woff2",
+                "format": "woff2"
+            ),
+            (
+                "key": "khaenriah-regular",
+                "path": "genshin/KhaenriahNeue-Regular-2.000.woff2",
+                "format": "woff2"
+            ),
+            (
+                "key": "khaenriah-chasm",
+                "path": "genshin/KhaenriahNeue-Chasm-2.000.woff2",
+                "format": "woff2"
+            ),
+            (
+                "key": "inazuma-regular",
+                "path": "genshin/InazumaNeue-Regular-1.000.woff2",
+                "format": "woff2"
+            ),
+            (
+                "key": "sumeru-regular",
+                "path": "genshin/SumeruNeue-Regular-0.007.woff2",
+                "format": "woff2"
+            ),
+            (
+                "key": "deshret-regular",
+                "path": "genshin/DeshretNeue-Regular-1.002.woff2",
+                "format": "woff2"
+            ),
+        ),
+        "starrail": (
+            (
+                "key": "starrail-regular",
+                "path": "starrail/StarRailNeue-Bold-0.101.woff2",
+                "format": "woff2"
+            ),
+            (
+                "key": "starrail-bold",
+                "path": "starrail/StarRailNeue-Regular-0.101.woff2",
+                "format": "woff2"
+            ),
+            (
+                "key": "starrail-thin",
+                "path": "starrail/StarRailNeue-Thin-0.101.woff2",
+                "format": "woff2"
+            ),
+        ),
+        "zzz": (
+            (
+                "key": "zzz-a",
+                "path": "zzz/ZZZNeue-VariantA-0.003.woff2",
+                "format": "woff2"
+            ),
+            (
+                "key": "zzz-b",
+                "path": "zzz/ZZZNeue-VariantB-0.003.woff2",
+                "format": "woff2"
+            ),
+        ),
+    );
+
+    @each $fontGroupKey, $fontGroup in $fonts {
+        @each $font in $fontGroup {
+            $font-key: map.get($font, "key");
+            $font-path: map.get($font, "path");
+            $font-format: map.get($font, "format");
+
+            @font-face {
+                font-family: '#{$font-key}';
+                src: url('../fonts/#{$font-path}') format('#{$font-format}');
+            }
+
+            @if $deep {
+                :deep(.font-#{$font-key}) {
+                    font-family: '#{$font-key}';
+                }
+            } @else {
+                .font-#{$font-key} {
+                    font-family: '#{$font-key}';
+                }
+            }
+        }
+    }
+}
