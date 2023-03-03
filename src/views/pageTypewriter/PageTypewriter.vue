@@ -17,7 +17,6 @@ import TextInput from "./components/TextInput.vue";
         <TextInput></TextInput>
       </div>
     </div>
-    <div class="flex-2">character-picker</div>
   </main>
 </template>
 
