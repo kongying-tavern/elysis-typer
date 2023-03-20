@@ -11,7 +11,8 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "pnpm lint-eslint && pnpm lint-stylelint",
     "lint-eslint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "lint-stylelint": "stylelint ./**/*.{css,sass,scss} --fix --ignore-path .gitignore"
+    "lint-stylelint": "stylelint ./**/*.{css,sass,scss} --fix --ignore-path .gitignore",
+    "release": "semantic-release"
   },
   "dependencies": {
     "element-plus": "^2.2.32",
