@@ -20,7 +20,7 @@ jobs:
           node-version: latest
           cache: pnpm
       - name: Install deps
-        run: pnpm install
+        run: rm -rf node_modules && pnpm install
       - name: Build
         run: pnpm build
       - name: Release
