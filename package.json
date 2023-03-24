@@ -22,7 +22,7 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@aghap/semantic-release-gh-pages": "^1.0.2",
+    "@aghap/semantic-release-gh-pages": "^2.0.0",
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/node": "^18.11.12",
     "@vitejs/plugin-vue": "^4.0.0",
