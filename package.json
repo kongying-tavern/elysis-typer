@@ -22,7 +22,7 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@aghap/semantic-release-gh-pages": "^2.0.0",
+    "@aghap/semantic-release-gh-pages": "^2.0.9",
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/node": "^18.11.12",
     "@vitejs/plugin-vue": "^4.0.0",
@@ -65,7 +65,7 @@
       [
         "@aghap/semantic-release-gh-pages",
         {
-          "src": "aaa",
+          "src": "dist",
           "ghpBranch": "gh-pages",
           "ghpPath": "/",
           "message": "chore(release): GitHub Pages release"
