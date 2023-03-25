@@ -67,7 +67,7 @@
         {
           "src": "aaa",
           "ghpBranch": "gh-pages",
-          "ghpPath": "./",
+          "ghpPath": "/",
           "message": "chore(release): GitHub Pages release"
         }
       ]
