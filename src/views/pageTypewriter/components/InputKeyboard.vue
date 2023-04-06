@@ -176,6 +176,7 @@ const keyboardLayout: KeyboardLayoutOptions = {
 
   :deep(.keyboard-key),
   :deep(.keyboard-span) {
+    display: inline-block;
     height: 2rem;
     line-height: 2rem;
     font-size: 1.5rem;
@@ -188,8 +189,12 @@ const keyboardLayout: KeyboardLayoutOptions = {
     width: 2.5rem;
     text-align: center;
     border-radius: 0.3rem;
-
-    display: inline-block;
+    &:hover {
+      background-color: #eee;
+    }
+    &:active {
+      background-color: #ccc;
+    }
   }
 }
 </style>
