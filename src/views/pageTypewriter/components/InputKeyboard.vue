@@ -6,6 +6,7 @@ import type {
   KeyboardSpanOption,
   KeyboardNlOption,
 } from "@/shared";
+
 import WidgetKey from "./InputKeyboard/WidgetKey.vue";
 import WidgetSpan from "./InputKeyboard/WidgetSpan.vue";
 import WidgetNl from "./InputKeyboard/WidgetNl.vue";
