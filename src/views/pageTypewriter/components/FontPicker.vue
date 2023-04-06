@@ -28,7 +28,7 @@ const fontSwitcher = (data: TreeNodeData, node: Node): void => {
   </el-tree>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .active {
   color: #f17bd8;
   font-weight: bold;

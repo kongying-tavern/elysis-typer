@@ -17,7 +17,7 @@ const { text } = useTextInput();
   </el-input>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .text-input {
   font-size: 1.2rem;
 }

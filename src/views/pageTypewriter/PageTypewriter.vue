@@ -20,7 +20,7 @@ import TextInput from "./components/TextInput.vue";
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 @use "@/assets/style/font.scss";
 @include font.fonts(true);
 </style>
