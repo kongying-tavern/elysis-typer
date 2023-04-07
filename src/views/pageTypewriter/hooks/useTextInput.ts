@@ -1,6 +1,10 @@
 const text = ref("");
 
 export const useTextInput = () => {
+  const clear = () => {
+    text.value = "";
+  };
+
   const update = (str: string) => {
     text.value = str;
   };
@@ -9,5 +13,10 @@ export const useTextInput = () => {
     text.value += chars;
   };
 
-  return { text, update, append };
+  const trimLast = () => {
+    const txt: string = text.value as string;
+    text.value = txt.substring(0, txt.length - 1);
+  };
+
+  return { text, clear, update, append, trimLast };
 };
