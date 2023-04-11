@@ -1,0 +1,13 @@
+<script setup lang="ts">
+import ButtonClean from "./ConfigBar/ButtonClean.vue";
+import ButtonInputMethod from "./ConfigBar/ButtonInputMethod.vue";
+import ButtonKeyTransform from "./ConfigBar/ButtonKeyTransform.vue";
+</script>
+
+<template>
+  <div class="flex flex-row space-x-1">
+    <ButtonClean></ButtonClean>
+    <ButtonInputMethod></ButtonInputMethod>
+    <ButtonKeyTransform></ButtonKeyTransform>
+  </div>
+</template>

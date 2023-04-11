@@ -12,7 +12,7 @@ const { text } = useTextInput();
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .text-preview {
   height: 100%;
   width: 100%;
