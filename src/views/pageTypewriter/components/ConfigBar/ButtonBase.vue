@@ -5,13 +5,11 @@ defineProps<{
   active?: boolean;
   iconSrc: string;
 }>();
-
-const iconBase = import.meta.url;
 </script>
 
 <template>
   <div class="cursor-pointer config-button" :class="{ active: active }">
-    <SvgIcon class="icon" :icon-base="iconBase" :icon-src="iconSrc"></SvgIcon>
+    <SvgIcon class="icon" :icon-src="iconSrc"></SvgIcon>
   </div>
 </template>
 

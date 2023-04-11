@@ -1,33 +1,29 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import type { ComputedRef } from "vue";
 import SvgIcon from "@/components/SvgIcon.vue";
 import ButtonBase from "./ButtonBase.vue";
 import ButtonDropdown from "./ButtonDropdown.vue";
 import type { ConfigInputMethod } from "@/shared";
 import { ConfigInputMethodEnum } from "@/shared";
 import { useConfig } from "../../hooks";
-
-const iconBase = import.meta.url;
-
-enum iconPathEnum {
-  text = "./assets/i-beam.svg",
-  keyboard = "./assets/keyboard.svg",
-}
+import SvgIBeam from "./assets/i-beam.svg";
+import SvgKeyboard from "./assets/keyboard.svg";
 
 interface inputMethodOption {
-  icon: iconPathEnum;
+  icon: string;
   label: string;
   command: string;
 }
 
 const inputMethodOptions: inputMethodOption[] = [
   {
-    icon: iconPathEnum.text,
+    icon: SvgIBeam,
     label: "文本输入",
     command: ConfigInputMethodEnum.TEXT,
   },
   {
-    icon: iconPathEnum.keyboard,
+    icon: SvgKeyboard,
     label: "键盘输入",
     command: ConfigInputMethodEnum.KEYBOARD,
   },
@@ -35,8 +31,13 @@ const inputMethodOptions: inputMethodOption[] = [
 
 const { config } = useConfig();
 
-const iconPath = computed(() => {
-  return iconPathEnum[config.value.inputMethod] || "";
+const iconPath: ComputedRef<string> = computed(() => {
+  const fullPath =
+    {
+      [ConfigInputMethodEnum.TEXT]: SvgIBeam,
+      [ConfigInputMethodEnum.KEYBOARD]: SvgKeyboard,
+    }[config.value.inputMethod] || "";
+  return fullPath as string;
 });
 
 const changeInputMethod = (
@@ -56,7 +57,7 @@ const changeInputMethod = (
           :key="option.command"
           :command="option.command"
         >
-          <SvgIcon class="icon" :icon-base="iconBase" :icon-src="option.icon" />
+          <SvgIcon class="icon" :icon-src="option.icon" />
           <span class="text">{{ option.label }}</span>
         </el-dropdown-item>
       </el-dropdown-menu>
