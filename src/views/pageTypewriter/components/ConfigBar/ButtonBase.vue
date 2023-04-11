@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import SvgIcon from "@/components/SvgIcon.vue";
 
-const props = defineProps<{
+defineProps<{
   active?: boolean;
   iconSrc: string;
 }>();
 
-const iconUrl = computed(() => new URL(props.iconSrc, import.meta.url).href);
+const iconBase = import.meta.url;
 </script>
 
 <template>
   <div class="cursor-pointer config-button" :class="{ active: active }">
-    <img class="icon" :src="iconUrl" />
+    <SvgIcon class="icon" :icon-base="iconBase" :icon-src="iconSrc"></SvgIcon>
   </div>
 </template>
 
