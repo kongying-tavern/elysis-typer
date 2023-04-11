@@ -2,6 +2,7 @@
 import { computed } from "vue";
 
 const props = defineProps<{
+  active?: boolean;
   iconSrc: string;
 }>();
 
@@ -9,7 +10,7 @@ const iconUrl = computed(() => new URL(props.iconSrc, import.meta.url).href);
 </script>
 
 <template>
-  <div class="cursor-pointer config-button">
+  <div class="cursor-pointer config-button" :class="{ active: active }">
     <img class="icon" :src="iconUrl" />
   </div>
 </template>
@@ -21,6 +22,8 @@ const iconUrl = computed(() => new URL(props.iconSrc, import.meta.url).href);
   height: 2rem;
   border-radius: 0.3rem;
   position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
 
   &:hover {
     background-color: #e7e8e9;
@@ -28,10 +31,17 @@ const iconUrl = computed(() => new URL(props.iconSrc, import.meta.url).href);
   &:active {
     background-color: #ddd;
   }
+  &.active {
+    background-color: #999;
+    .icon {
+      filter: drop-shadow(5rem 0 0 #fafafa);
+      transform: translate(calc(-50% - 5rem), -50%);
+    }
+  }
 
   .icon {
-    width: 75%;
-    height: 75%;
+    width: 1.5rem;
+    height: 1.5rem;
     position: relative;
     left: 50%;
     top: 50%;

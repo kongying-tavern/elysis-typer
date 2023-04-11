@@ -177,14 +177,14 @@ const keyboardLayout: KeyboardLayoutOptions = {
   :deep(.keyboard-key),
   :deep(.keyboard-span) {
     display: inline-block;
-    height: 2rem;
-    line-height: 2rem;
-    font-size: 1.5rem;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    font-size: 1.2rem;
   }
 
   :deep(.keyboard-key) {
     border: 0.1rem solid #aaa;
-    padding: 0 0.5rem;
+    padding: 0.2 0.5rem;
     margin: 0.5rem;
     width: 2.5rem;
     text-align: center;

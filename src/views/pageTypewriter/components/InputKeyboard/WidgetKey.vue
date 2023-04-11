@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { withDefaults } from "vue";
 import type { KeyboardKeyOption } from "@/shared";
-import { useTextInput } from "../../hooks";
+import { useConfig, useFontPicker, useTextInput } from "../../hooks";
 
 interface Props {
   options?: KeyboardKeyOption;
@@ -14,6 +14,8 @@ const props = withDefaults(defineProps<Props>(), {
   }),
 });
 
+const { config } = useConfig();
+const { font } = useFontPicker();
 const { append } = useTextInput();
 
 const keyPress = () => {
@@ -24,6 +26,9 @@ const keyPress = () => {
 <template>
   <div
     class="keyboard-widget keyboard-key cursor-pointer float-left"
+    :class="{
+      [font]: config.keyTransform,
+    }"
     :style="{ width: options.width }"
     @click="keyPress()"
   >
