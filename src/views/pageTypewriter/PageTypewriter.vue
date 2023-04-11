@@ -13,11 +13,11 @@ import InputKeyboard from "./components/InputKeyboard.vue";
     </div>
     <div class="flex flex-col flex-3 p-3 pl-0 space-y-3">
       <TextPreview class="flex-auto"></TextPreview>
-      <ConfigBar class="flex-none"></ConfigBar>
       <div class="flex flex-row flex-none">
         <TextInput class="flex-auto"></TextInput>
         <InputKeyboard class="flex-none"></InputKeyboard>
       </div>
+      <ConfigBar class="flex-none"></ConfigBar>
     </div>
   </main>
 </template>
