@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { withDefaults } from "vue";
 import type { KeyboardKeyOption } from "@/shared";
-import { useConfig, useFontPicker, useTextInput } from "../../hooks";
+import { useConfig, useFontPicker, useTextInput } from "../../../hooks";
 
 interface Props {
   options?: KeyboardKeyOption;

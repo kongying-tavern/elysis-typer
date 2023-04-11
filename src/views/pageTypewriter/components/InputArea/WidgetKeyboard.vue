@@ -7,9 +7,9 @@ import type {
   KeyboardNlOption,
 } from "@/shared";
 
-import WidgetKey from "./InputKeyboard/WidgetKey.vue";
-import WidgetSpan from "./InputKeyboard/WidgetSpan.vue";
-import WidgetNl from "./InputKeyboard/WidgetNl.vue";
+import WidgetKey from "./WidgetKeyboard/WidgetKey.vue";
+import WidgetSpan from "./WidgetKeyboard/WidgetSpan.vue";
+import WidgetNl from "./WidgetKeyboard/WidgetNl.vue";
 
 const keyboardLayout: KeyboardLayoutOptions = {
   framework: {},
@@ -142,8 +142,8 @@ const keyboardLayout: KeyboardLayoutOptions = {
 </script>
 
 <template>
-  <div class="position-relative">
-    <div class="keyboard-wrapper">
+  <div class="keyboard-wrapper">
+    <div class="keyboard-layout">
       <template v-for="(widget, index) in keyboardLayout.layout" :key="index">
         <WidgetKey
           v-if="widget.type === 'key'"
@@ -168,11 +168,13 @@ const keyboardLayout: KeyboardLayoutOptions = {
 
 <style scoped lang="scss">
 .keyboard-wrapper {
+  text-align: center;
+}
+.keyboard-layout {
   align-content: center;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 0 2rem;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0 1rem;
 
   :deep(.keyboard-key),
   :deep(.keyboard-span) {

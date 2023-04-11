@@ -2,8 +2,7 @@
 import FontPicker from "./components/FontPicker.vue";
 import TextPreview from "./components/TextPreview.vue";
 import ConfigBar from "./components/ConfigBar.vue";
-import TextInput from "./components/TextInput.vue";
-import InputKeyboard from "./components/InputKeyboard.vue";
+import InputArea from "./components/InputArea.vue";
 </script>
 
 <template>
@@ -13,10 +12,7 @@ import InputKeyboard from "./components/InputKeyboard.vue";
     </div>
     <div class="flex flex-col flex-3 p-3 pl-0 space-y-3">
       <TextPreview class="flex-auto"></TextPreview>
-      <div class="flex flex-row flex-none">
-        <TextInput class="flex-auto"></TextInput>
-        <InputKeyboard class="flex-none"></InputKeyboard>
-      </div>
+      <InputArea class="flex-none"></InputArea>
       <ConfigBar class="flex-none"></ConfigBar>
     </div>
   </main>
