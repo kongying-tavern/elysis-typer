@@ -1,10 +1,7 @@
-export interface Config {
-  inputMethod: "text" | "keyboard";
-  keyTransform: boolean;
-}
+import type { Config, ConfigInputMethod } from "@/shared";
 
 const config: Ref<Config> = ref({
-  inputMethod: "keyboard",
+  inputMethod: "keyboard" as ConfigInputMethod,
   keyTransform: true,
 });
 

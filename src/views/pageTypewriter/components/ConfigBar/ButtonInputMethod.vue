@@ -3,6 +3,8 @@ import { computed } from "vue";
 import SvgIcon from "@/components/SvgIcon.vue";
 import ButtonBase from "./ButtonBase.vue";
 import ButtonDropdown from "./ButtonDropdown.vue";
+import type { ConfigInputMethod } from "@/shared";
+import { ConfigInputMethodEnum } from "@/shared";
 import { useConfig } from "../../hooks";
 
 const iconBase = import.meta.url;
@@ -19,8 +21,16 @@ interface inputMethodOption {
 }
 
 const inputMethodOptions: inputMethodOption[] = [
-  { icon: iconPathEnum.text, label: "文本输入", command: "text" },
-  { icon: iconPathEnum.keyboard, label: "键盘输入", command: "keyboard" },
+  {
+    icon: iconPathEnum.text,
+    label: "文本输入",
+    command: ConfigInputMethodEnum.TEXT,
+  },
+  {
+    icon: iconPathEnum.keyboard,
+    label: "键盘输入",
+    command: ConfigInputMethodEnum.KEYBOARD,
+  },
 ];
 
 const { config } = useConfig();
@@ -29,7 +39,9 @@ const iconPath = computed(() => {
   return iconPathEnum[config.value.inputMethod] || "";
 });
 
-const changeInputMethod = (command: "text" | "keyboard" = "keyboard") => {
+const changeInputMethod = (
+  command: ConfigInputMethod = ConfigInputMethodEnum.KEYBOARD
+) => {
   config.value.inputMethod = command;
 };
 </script>
