@@ -16,5 +16,4 @@ const toggle = () => {
     @click="toggle()"
   >
   </ButtonBase>
-  <IconTransformChar></IconTransformChar>
 </template>
