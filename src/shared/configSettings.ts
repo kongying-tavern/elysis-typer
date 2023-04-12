@@ -10,4 +10,5 @@ export type ConfigInputMethod =
 export interface Config {
   inputMethod: ConfigInputMethod;
   keyTransform: boolean;
+  font: string;
 }
