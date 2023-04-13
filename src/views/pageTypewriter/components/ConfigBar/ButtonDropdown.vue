@@ -6,7 +6,7 @@ const popperOptions = {
       phase: "write",
       fn({ state }) {
         const { arrow } = state.elements;
-        arrow.remove();
+        arrow?.remove();
       },
     },
   ],
