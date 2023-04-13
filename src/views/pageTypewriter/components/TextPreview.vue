@@ -19,5 +19,6 @@ const { text } = useTextInput();
   border-radius: 0.3rem;
   font-size: 1.2rem;
   border: 1px solid #ddd;
+  white-space: pre;
 }
 </style>
