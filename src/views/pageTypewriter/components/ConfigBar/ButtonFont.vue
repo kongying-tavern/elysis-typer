@@ -7,6 +7,7 @@ import ButtonDropdown from "./ButtonDropdown.vue";
 import ImgFontFamily from "./assets/font-family.svg";
 import ImgLogoGenshin from "./assets/logo-genshin.svg";
 import ImgLogoStarrail from "./assets/logo-starrail.svg";
+import ImgLogoZzz from "./assets/logo-zzz.svg";
 
 interface FontNode {
   tag: string;
@@ -57,7 +58,8 @@ const fontOptions: FontGroupNode[] = [
   {
     id: "zzz",
     label: "绝区零",
-    displayWidgets: ["label"],
+    icon: ImgLogoZzz,
+    displayWidgets: ["icon"],
     children: [
       { tag: "font-zzz-a", label: "变体一" },
       { tag: "font-zzz-b", label: "变体二" },
