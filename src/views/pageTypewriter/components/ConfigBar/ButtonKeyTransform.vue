@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useConfig } from "../../hooks";
 import ButtonBase from "./ButtonBase.vue";
-import SvgTransformChar from "./assets/transform-char.svg";
+import ImgTransformChar from "./assets/transform-char.svg";
 
 const { config } = useConfig();
 
@@ -12,7 +12,7 @@ const toggle = () => {
 
 <template>
   <ButtonBase
-    :icon-src="SvgTransformChar"
+    :icon-src="ImgTransformChar"
     :active="config.keyTransform"
     @click="toggle()"
   >

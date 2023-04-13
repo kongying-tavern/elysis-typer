@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { useFontPicker, useTextInput } from "../hooks";
+import { useConfig, useTextInput } from "../hooks";
 
-const { font } = useFontPicker();
-
+const { config } = useConfig();
 const { text } = useTextInput();
 </script>
 
 <template>
-  <div class="text-preview" :class="font">
+  <div class="text-preview" :class="config.font">
     {{ text }}
   </div>
 </template>
@@ -20,5 +19,6 @@ const { text } = useTextInput();
   border-radius: 0.3rem;
   font-size: 1.2rem;
   border: 1px solid #ddd;
+  white-space: pre;
 }
 </style>

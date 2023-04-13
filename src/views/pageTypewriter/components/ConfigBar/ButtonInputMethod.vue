@@ -7,8 +7,8 @@ import ButtonDropdown from "./ButtonDropdown.vue";
 import type { ConfigInputMethod } from "@/shared";
 import { ConfigInputMethodEnum } from "@/shared";
 import { useConfig } from "../../hooks";
-import SvgIBeam from "./assets/i-beam.svg";
-import SvgKeyboard from "./assets/keyboard.svg";
+import ImgIBeam from "./assets/i-beam.svg";
+import ImgKeyboard from "./assets/keyboard.svg";
 
 interface inputMethodOption {
   icon: string;
@@ -18,12 +18,12 @@ interface inputMethodOption {
 
 const inputMethodOptions: inputMethodOption[] = [
   {
-    icon: SvgIBeam,
+    icon: ImgIBeam,
     label: "文本输入",
     command: ConfigInputMethodEnum.TEXT,
   },
   {
-    icon: SvgKeyboard,
+    icon: ImgKeyboard,
     label: "键盘输入",
     command: ConfigInputMethodEnum.KEYBOARD,
   },
@@ -34,8 +34,8 @@ const { config } = useConfig();
 const iconPath: ComputedRef<string> = computed(() => {
   const fullPath =
     {
-      [ConfigInputMethodEnum.TEXT]: SvgIBeam,
-      [ConfigInputMethodEnum.KEYBOARD]: SvgKeyboard,
+      [ConfigInputMethodEnum.TEXT]: ImgIBeam,
+      [ConfigInputMethodEnum.KEYBOARD]: ImgKeyboard,
     }[config.value.inputMethod] || "";
   return fullPath as string;
 });

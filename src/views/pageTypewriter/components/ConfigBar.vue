@@ -2,6 +2,7 @@
 import ButtonClean from "./ConfigBar/ButtonClean.vue";
 import ButtonInputMethod from "./ConfigBar/ButtonInputMethod.vue";
 import ButtonKeyTransform from "./ConfigBar/ButtonKeyTransform.vue";
+import ButtonFont from "./ConfigBar/ButtonFont.vue";
 </script>
 
 <template>
@@ -9,5 +10,6 @@ import ButtonKeyTransform from "./ConfigBar/ButtonKeyTransform.vue";
     <ButtonClean></ButtonClean>
     <ButtonInputMethod></ButtonInputMethod>
     <ButtonKeyTransform></ButtonKeyTransform>
+    <ButtonFont></ButtonFont>
   </div>
 </template>
