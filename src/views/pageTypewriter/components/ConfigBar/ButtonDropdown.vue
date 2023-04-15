@@ -4,7 +4,7 @@ const popperOptions = {
     {
       enabled: true,
       phase: "write",
-      fn({ state }) {
+      fn({ state }: any) {
         const { arrow } = state.elements;
         arrow?.remove();
       },
