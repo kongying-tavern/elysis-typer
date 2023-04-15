@@ -66,7 +66,7 @@ const keyPress = () => {
       top: 50%;
       left: 50%;
       transform-origin: center;
-      transform: translate(-50%, -50%) scaleX(.8);
+      transform: translate(-50%, -50%) scaleX(0.8);
     }
   }
   .inner:hover {
