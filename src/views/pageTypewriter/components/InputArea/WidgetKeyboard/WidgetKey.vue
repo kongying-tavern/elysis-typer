@@ -34,7 +34,9 @@ const keyPress = () => {
     @click="keyPress()"
   >
     <div class="inner">
-      {{ options.keyTextMain }}
+      <span class="char-main">
+        {{ options.keyTextMain }}
+      </span>
     </div>
   </div>
 </template>
@@ -56,6 +58,16 @@ const keyPress = () => {
     padding: $button-padding-y $button-padding-x;
     border: $button-border-width solid $button-norm-border-color;
     border-radius: $button-border-radius;
+    position: relative;
+
+    .char-main {
+      position: absolute;
+      display: inline-block;
+      top: 50%;
+      left: 50%;
+      transform-origin: center;
+      transform: translate(-50%, -50%) scaleX(.8);
+    }
   }
   .inner:hover {
     background-color: $button-hover-bg-color;
