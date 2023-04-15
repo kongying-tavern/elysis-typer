@@ -1,32 +1,27 @@
-export interface KeyboardLayoutOptions {
-  framework: KeyboardFrameworkOptions;
-  layout: KeyboardWidgetOption[];
+export interface KeyboardOption {
+  layout: KeyboardComponentOption[];
 }
 
-export interface KeyboardFrameworkOptions {
-  // TODO
-}
+export type KeyboardLayoutOption = KeyboardRowOption;
+export type KeyboardWidgetOption = KeyboardKeyOption | KeyboardSpanOption;
 
-export type KeyboardKeyType = "key" | "span" | "nl";
+export type KeyboardComponentOption =
+  | KeyboardLayoutOption
+  | KeyboardWidgetOption;
+
+export interface KeyboardRowOption {
+  type: "row";
+  children: KeyboardWidgetOption[];
+}
 
 export interface KeyboardKeyOption {
+  type: "key";
   width?: string | number;
-  keyTextMain: string;
   keyCode: number;
+  keyTextMain: string;
 }
 
 export interface KeyboardSpanOption {
+  type: "span";
   width: string | number;
-}
-
-export interface KeyboardNlOption {}
-
-export type KeyboardWidgetOptions =
-  | KeyboardKeyOption
-  | KeyboardSpanOption
-  | KeyboardNlOption;
-
-export interface KeyboardWidgetOption {
-  type: KeyboardKeyType;
-  options?: KeyboardWidgetOptions;
 }

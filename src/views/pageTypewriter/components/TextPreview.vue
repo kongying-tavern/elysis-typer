@@ -6,19 +6,33 @@ const { text } = useTextInput();
 </script>
 
 <template>
-  <div class="text-preview" :class="config.font">
-    {{ text }}
+  <div class="relative text-preview">
+    <el-scroll>
+      <div class="inner" :class="config.font">
+        {{ text }}
+      </div>
+    </el-scroll>
   </div>
 </template>
 
 <style scoped lang="scss">
+$box-padding-x: 0.2rem;
+$box-padding-y: 0.2rem;
+
 .text-preview {
-  height: 100%;
-  width: 100%;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  font-size: 1.2rem;
   border: 1px solid #ddd;
-  white-space: pre;
+  border-radius: 0.3rem;
+
+  .inner {
+    position: absolute;
+    top: $box-padding-y;
+    bottom: $box-padding-y;
+    left: $box-padding-x;
+    right: $box-padding-x;
+    font-size: 1.2rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+  }
 }
 </style>
