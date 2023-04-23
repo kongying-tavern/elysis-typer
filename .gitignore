@@ -45,6 +45,7 @@ jspm_packages/
 # Dependency locks
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
 # TypeScript v1 declaration files
 typings/
