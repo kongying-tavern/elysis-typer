@@ -7,11 +7,11 @@ const { text } = useTextInput();
 
 <template>
   <div class="relative text-preview">
-    <el-scroll>
+    <el-scrollbar>
       <div class="inner" :class="config.font">
         {{ text }}
       </div>
-    </el-scroll>
+    </el-scrollbar>
   </div>
 </template>
 

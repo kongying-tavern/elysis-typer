@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { Key } from "ts-keycode-enum";
 import type { KeyboardOption } from "@/shared";
-import WidgetRow from "./WidgetKeyboard/WidgetRow.vue";
-import WidgetKey from "./WidgetKeyboard/WidgetKey.vue";
-import WidgetSpan from "./WidgetKeyboard/WidgetSpan.vue";
+import WidgetRow from "./KeyboardInput/WidgetRow.vue";
+import WidgetKey from "./KeyboardInput/WidgetKey.vue";
+import WidgetSpan from "./KeyboardInput/WidgetSpan.vue";
 
 const keyboardLayout: KeyboardOption = {
   layout: [
@@ -192,19 +192,21 @@ const keyboardLayout: KeyboardOption = {
 </script>
 
 <template>
-  <div class="keyboard-layout">
-    <template v-for="(options, index) in keyboardLayout.layout" :key="index">
-      <WidgetRow v-if="options.type === 'row'" :options="options"></WidgetRow>
-      <WidgetKey v-else-if="options.type === 'key'" :options="options">
-      </WidgetKey>
-      <WidgetSpan v-else-if="options.type === 'span'" :options="options">
-      </WidgetSpan>
-    </template>
+  <div>
+    <div class="keyboard-layout">
+      <template v-for="(options, index) in keyboardLayout.layout" :key="index">
+        <WidgetRow v-if="options.type === 'row'" :options="options"></WidgetRow>
+        <WidgetKey v-else-if="options.type === 'key'" :options="options">
+        </WidgetKey>
+        <WidgetSpan v-else-if="options.type === 'span'" :options="options">
+        </WidgetSpan>
+      </template>
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-@import "./WidgetKeyboard/assets/vars.scss";
+@import "./KeyboardInput/assets/vars.scss";
 
 .keyboard-layout {
   max-width: $layout-max-width;

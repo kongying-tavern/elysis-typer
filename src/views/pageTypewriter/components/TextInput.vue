@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTextInput } from "../../hooks";
+import { useTextInput } from "../hooks";
 
 const { text } = useTextInput();
 </script>

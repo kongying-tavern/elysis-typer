@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import TextPreview from "./components/TextPreview.vue";
-import ConfigBar from "./components/ConfigBar.vue";
-import InputArea from "./components/InputArea.vue";
+import TextInput from "./components/TextInput.vue";
+import KeyboardInput from "./components/KeyboardInput.vue";
+import ActionBar from "./components/ActionBar.vue";
 </script>
 
 <template>
   <main class="flex flex-col fixed top-0 bottom-0 left-0 right-0 p-3 space-y-3">
     <TextPreview class="flex-auto"></TextPreview>
-    <InputArea class="flex-none"></InputArea>
-    <ConfigBar class="flex-none"></ConfigBar>
+    <TextInput class="flex-none"></TextInput>
+    <KeyboardInput class="flex-none"></KeyboardInput>
+    <ActionBar class="flex-none"></ActionBar>
   </main>
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/style/font.scss";
-@include font.fonts(true);
+@use "@/assets/effects/fonts.scss";
+@include fonts.fonts(true);
 </style>
