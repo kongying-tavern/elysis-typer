@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import type { ComputedRef } from "vue";
+import type { FontGroupNode, FontNode } from "@/shared";
 import { useConfig } from "../../hooks";
 import ButtonBase from "./ButtonBase.vue";
 import ButtonDropdown from "./ButtonDropdown.vue";
@@ -8,22 +9,6 @@ import ImgFontFamily from "./assets/font-family.svg";
 import ImgLogoGenshin from "./assets/logo-genshin.svg";
 import ImgLogoStarrail from "./assets/logo-starrail.svg";
 import ImgLogoZzz from "./assets/logo-zzz.svg";
-
-interface FontNode {
-  tag: string;
-  label: string;
-  abbr?: string;
-}
-
-type FontGroupDisplayWidget = "icon" | "label";
-
-interface FontGroupNode {
-  id: string;
-  label: string;
-  icon?: string;
-  displayWidgets: FontGroupDisplayWidget[];
-  children: FontNode[];
-}
 
 const fontOptions: FontGroupNode[] = [
   {
