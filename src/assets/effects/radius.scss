@@ -1,7 +1,0 @@
-@mixin radius {
-  @each $size in $sizes {
-    .radius-#{$size} {
-      border-radius: #{$size}rem;
-    }
-  }
-}
