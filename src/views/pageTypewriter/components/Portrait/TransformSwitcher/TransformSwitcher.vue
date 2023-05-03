@@ -24,7 +24,7 @@ const switchConvertDirection = () => {
       [config.convertDirection]: true,
     }"
   >
-    <ButtonBasic class="flex-1" size="large">
+    <ButtonBasic class="flex-1" size="large" type="primary">
       {{ config.font.label || config.font.abbr }}
     </ButtonBasic>
     <SvgIcon

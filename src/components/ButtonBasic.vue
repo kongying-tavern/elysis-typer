@@ -17,8 +17,8 @@ const props = withDefaults(defineProps<Props>(), {
   <div
     class="btn-wrapper box-shadow cursor-pointer"
     :class="{
-      [`size-${props.type}`]: true,
-      [`type-${props.size}`]: true,
+      [`size-${props.size}`]: true,
+      [`type-${props.type}`]: true,
     }"
   >
     <slot></slot>
@@ -74,14 +74,14 @@ $color-list: (
 
   // Sizes
   @each $size in $size-list {
-    .size-#{map.get($size, "size")} {
+    &.size-#{map.get($size, "size")} {
       padding: map.get($size, "padding");
     }
   }
 
   // Colors
   @each $color in $color-list {
-    .type-#{map.get($color, "color")} {
+    &.type-#{map.get($color, "color")} {
       background-color: map.get($color, "fill");
       color: map.get($color, "text");
     }
