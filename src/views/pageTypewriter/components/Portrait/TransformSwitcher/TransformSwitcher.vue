@@ -1,10 +1,20 @@
 <script setup lang="ts">
+import { ConfigConvertDirectionEnum } from "@/shared";
 import SvgIcon from "@/components/SvgIcon.vue";
 import ButtonBasic from "@/components/ButtonBasic.vue";
-import { useConfig } from "../../hooks";
-import ImgContentArrow from "../../assets/convert-arrow.svg";
+import { useConfig } from "../../../hooks";
+import ImgContentArrow from "../../../assets/convert-arrow.svg";
+import variables from "./variables.module.scss";
 
 const { config } = useConfig();
+
+const switchConvertDirection = () => {
+  if (config.value.convertDirection === ConfigConvertDirectionEnum.FROM_ENG) {
+    config.value.convertDirection = ConfigConvertDirectionEnum.TO_ENG;
+  } else {
+    config.value.convertDirection = ConfigConvertDirectionEnum.FROM_ENG;
+  }
+};
 </script>
 
 <template>
@@ -17,7 +27,13 @@ const { config } = useConfig();
     <ButtonBasic class="flex-1" size="large">
       {{ config.font.label || config.font.abbr }}
     </ButtonBasic>
-    <SvgIcon class="arrow flex-none" :icon-src="ImgContentArrow"></SvgIcon>
+    <SvgIcon
+      class="arrow flex-none cursor-pointer"
+      :icon-src="ImgContentArrow"
+      :color="variables.color_arrow"
+      @click="switchConvertDirection()"
+    >
+    </SvgIcon>
     <ButtonBasic class="flex-1" size="large">英语</ButtonBasic>
   </div>
 </template>
@@ -35,9 +51,6 @@ const { config } = useConfig();
 
   .arrow {
     width: 2.96rem;
-    :deep(svg *) {
-      fill: red;
-    }
   }
 }
 </style>

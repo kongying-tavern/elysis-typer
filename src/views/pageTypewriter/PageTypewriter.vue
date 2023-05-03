@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TransformSwitcher from "./components/Portrait/TransformSwitcher.vue";
+import TransformSwitcher from "./components/Portrait/TransformSwitcher/TransformSwitcher.vue";
 import TextPreview from "./components/TextPreview.vue";
 import TextInput from "./components/TextInput.vue";
 import KeyboardInput from "./components/KeyboardInput.vue";
