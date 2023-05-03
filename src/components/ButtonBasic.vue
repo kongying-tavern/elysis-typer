@@ -3,23 +3,37 @@ type ButtonSize = "large" | "medium" | "small";
 type ButtonType = "default" | "primary";
 
 interface Props {
+  clickable?: boolean;
   size?: ButtonSize;
   type?: ButtonType;
 }
 
+const emits = defineEmits<{
+  (e: "click"): void;
+}>();
+
 const props = withDefaults(defineProps<Props>(), {
+  clickable: true,
   size: "medium",
   type: "default",
 });
+
+const onClick = () => {
+  if (props.clickable) {
+    emits("click");
+  }
+};
 </script>
 
 <template>
   <div
-    class="btn-wrapper box-shadow cursor-pointer"
+    class="btn-wrapper box-shadow"
     :class="{
+      'cursor-pointer': clickable,
       [`size-${props.size}`]: true,
       [`type-${props.type}`]: true,
     }"
+    @click="onClick()"
   >
     <slot></slot>
   </div>

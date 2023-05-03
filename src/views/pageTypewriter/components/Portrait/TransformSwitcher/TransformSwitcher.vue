@@ -34,13 +34,16 @@ const switchConvertDirection = () => {
       @click="switchConvertDirection()"
     >
     </SvgIcon>
-    <ButtonBasic class="flex-1" size="large">英语</ButtonBasic>
+    <ButtonBasic class="flex-1" size="large" :clickable="false">
+      英语
+    </ButtonBasic>
   </div>
 </template>
 
 <style scoped lang="scss">
 .switcher-wrapper {
   column-gap: 4.3rem;
+  justify-content: center;
 
   &.from-eng {
     flex-direction: row-reverse;
