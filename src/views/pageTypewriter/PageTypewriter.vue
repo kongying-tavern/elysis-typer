@@ -13,7 +13,6 @@ import ActionBar from "./components/ActionBar.vue";
     <InputArea class="flex-1"></InputArea>
 
     <TextPreview class="flex-auto"></TextPreview>
-    <TextInput class="flex-none"></TextInput>
     <KeyboardInput class="flex-none"></KeyboardInput>
     <ActionBar class="flex-none"></ActionBar>
   </main>
