@@ -46,8 +46,9 @@ const onClick = () => {
 @include shadow.box-shadow;
 
 $btn-corner-radius: 0.8rem;
-$btn-line-height: 1.5rem;
-$btn-padding-large: 1.24rem;
+$btn-line-height: 1;
+$btn-font-size: 1.6rem;
+$btn-padding-large: 1.2rem;
 $btn-padding-medium: 1rem;
 $btn-padding-small: 0.8rem;
 
@@ -80,7 +81,7 @@ $color-list: (
 
 .btn-wrapper {
   display: inline-block;
-  font-size: $btn-line-height;
+  font-size: $btn-font-size;
   line-height: $btn-line-height;
   padding: $btn-padding-small;
   text-align: center;
