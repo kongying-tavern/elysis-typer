@@ -1,5 +1,31 @@
+<script setup lang="ts">
+import { withDefaults } from "vue";
+
+interface Props {
+  modelValue: string;
+}
+
+withDefaults(defineProps<Props>(), {
+  modelValue: "",
+});
+
+const emits = defineEmits<{
+  (e: "update:modelValue", text: string): void;
+}>();
+
+const onChange = (e: Event) => {
+  const newText = (e.target as HTMLTextAreaElement).value || "";
+  emits("update:modelValue", newText);
+};
+</script>
+
 <template>
-  <textarea class="textarea-wrapper scrollbar"></textarea>
+  <textarea
+    class="textarea-wrapper scrollbar"
+    :value="modelValue"
+    @input="onChange"
+  >
+  </textarea>
 </template>
 
 <style scoped lang="scss">
