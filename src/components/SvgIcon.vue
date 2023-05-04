@@ -27,11 +27,9 @@ withDefaults(defineProps<Props>(), {
   overflow: hidden;
 
   img {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
     transform: translateX(100vw);
   }
 }
