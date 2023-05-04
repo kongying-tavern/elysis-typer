@@ -38,7 +38,7 @@ const onChange = (newText: string) => {
 @use "@/assets/effects/scrollbar.scss";
 @include scrollbar.scrollbar;
 
-$textarea-line-height: 1.5rem;
+$textarea-line-height: 1.6;
 $textarea-font-size: 1.4rem;
 
 .textarea-wrapper {
