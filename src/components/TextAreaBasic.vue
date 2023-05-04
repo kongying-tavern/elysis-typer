@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { withDefaults } from "vue";
+import type { InputAutoSize } from "element-plus";
 
 interface Props {
   modelValue: string;
+  rows?: number;
+  autosize?: InputAutoSize;
 }
 
 withDefaults(defineProps<Props>(), {
@@ -13,19 +16,21 @@ const emits = defineEmits<{
   (e: "update:modelValue", text: string): void;
 }>();
 
-const onChange = (e: Event) => {
-  const newText = (e.target as HTMLTextAreaElement).value || "";
+const onChange = (newText: string) => {
   emits("update:modelValue", newText);
 };
 </script>
 
 <template>
-  <textarea
+  <el-input
     class="textarea-wrapper scrollbar"
-    :value="modelValue"
+    :model-value="modelValue"
+    :rows="rows"
+    :autosize="autosize"
+    type="textarea"
     @input="onChange"
   >
-  </textarea>
+  </el-input>
 </template>
 
 <style scoped lang="scss">
@@ -37,19 +42,25 @@ $textarea-line-height: 1.5rem;
 $textarea-font-size: 1.4rem;
 
 .textarea-wrapper {
-  display: block;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  border: none;
-  overflow: auto;
-  resize: none;
-  font-size: $textarea-font-size;
-  line-height: $textarea-line-height;
-  color: $color-gray-2;
+  & :deep(.el-textarea__inner) {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    overflow: auto;
+    box-shadow: none;
+    resize: none;
+    font-size: $textarea-font-size;
+    line-height: $textarea-line-height;
+    color: $color-gray-2;
 
-  &::placeholder {
-    color: $color-gray-3;
+    &::placeholder {
+      font-size: $textarea-font-size;
+      line-height: $textarea-line-height;
+      color: $color-gray-3;
+    }
   }
 }
 </style>

@@ -24,6 +24,7 @@ const fontClass = computed(() => {
       v-model="text"
       class="textarea"
       :class="{ ...fontClass }"
+      :autosize="{ minRows: 2, maxRows: 4 }"
       placeholder="输入内容"
     >
       {{ text }}

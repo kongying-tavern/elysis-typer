@@ -6,7 +6,8 @@ $scrollbar-color-track: $color-gray-4;
 $scrollbar-color-thumb: $color-gray-3;
 
 @mixin scrollbar {
-  .scrollbar {
+  .scrollbar,
+  .scrollbar :deep(*) {
     &::-webkit-scrollbar {
       border-radius: $scrollbar-radius;
       background-color: $scrollbar-color-track;
