@@ -23,6 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style scoped lang="scss">
 @use "sass:map";
+@use "@/assets/vars/color.scss" as *;
 @use "@/assets/effects/shadow.scss";
 @include shadow.box-shadow;
 
@@ -47,6 +48,7 @@ $size-list: (
 );
 
 .card-wrapper {
+  background-color: $color-white;
   border-radius: $card-corner-radius;
 
   // Sizes

@@ -5,6 +5,6 @@ import TextAreaBasic from "@/components/TextAreaBasic.vue";
 
 <template>
   <CardBasic>
-    <TextAreaBasic class="textarea" placeholder="输入内容"> </TextAreaBasic>
+    <TextAreaBasic class="textarea" placeholder="输入内容"></TextAreaBasic>
   </CardBasic>
 </template>

@@ -8,8 +8,8 @@ import ActionBar from "./components/ActionBar.vue";
 </script>
 
 <template>
-  <main class="flex flex-col fixed top-0 bottom-0 left-0 right-0 p-3 space-y-3">
-    <TransformSwitcher class="flex-none"></TransformSwitcher>
+  <main class="main-container flex flex-col fixed inset-0 gap-y-3 px-5 py-4">
+    <TransformSwitcher class="flex-none mb-3"></TransformSwitcher>
     <InputArea class="flex-1"></InputArea>
 
     <TextPreview class="flex-auto"></TextPreview>
@@ -20,6 +20,11 @@ import ActionBar from "./components/ActionBar.vue";
 </template>
 
 <style scoped lang="scss">
+@use "@/assets/vars/color.scss" as *;
 @use "@/assets/effects/fonts.scss";
 @include fonts.fonts(true);
+
+.main-container {
+  background-color: $color-bg;
+}
 </style>
