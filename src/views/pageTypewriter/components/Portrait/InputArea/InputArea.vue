@@ -22,7 +22,7 @@ const fontClass = computed(() => {
 </script>
 
 <template>
-  <CardBasic class="flex flex-row gap-x-4">
+  <CardBasic class="textarea flex flex-row gap-x-4">
     <TextAreaBasic
       v-model="text"
       class="flex-auto"
@@ -44,6 +44,13 @@ const fontClass = computed(() => {
 </template>
 
 <style scoped lang="scss">
+@use "@/assets/vars/color.scss" as *;
 @use "../assets/action-wrapper.scss";
 @include action-wrapper.action-wrapper;
+
+.textarea {
+  &:focus-within {
+    outline: 0.1rem solid $color-primary-2;
+  }
+}
 </style>
