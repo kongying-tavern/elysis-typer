@@ -45,6 +45,7 @@ $textarea-font-size: 1.6rem;
   & :deep(.el-textarea__inner) {
     display: block;
     width: 100%;
+    height: 100%;
     padding: 0;
     margin: 0;
     outline: none;
