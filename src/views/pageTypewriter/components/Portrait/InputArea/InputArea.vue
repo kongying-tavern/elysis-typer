@@ -30,7 +30,6 @@ const fontClass = computed(() => {
       :autosize="{ minRows: 2, maxRows: 4 }"
       placeholder="输入内容"
     >
-      {{ text }}
     </TextAreaBasic>
     <div class="action-wrapper flex-none">
       <SvgIcon
