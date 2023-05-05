@@ -1,0 +1,13 @@
+$action-btn-size: 1.76rem;
+
+@mixin action-wrapper {
+  .action-wrapper {
+    width: $action-btn-size;
+
+    .action-button {
+      cursor: pointer;
+      height: $action-btn-size;
+      width: $action-btn-size;
+    }
+  }
+}
