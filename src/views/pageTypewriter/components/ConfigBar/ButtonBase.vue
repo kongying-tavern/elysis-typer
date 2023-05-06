@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <div class="cursor-pointer config-button" :class="{ active: active }">
-    <SvgIcon class="icon" :icon-src="iconSrc"></SvgIcon>
+    <SvgIcon class="icon" :icon-src="iconSrc" />
   </div>
 </template>
 

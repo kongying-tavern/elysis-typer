@@ -25,8 +25,7 @@ const fontClass = computed(() => {
       class="flex-auto"
       :class="{ ...fontClass }"
       readonly
-    >
-    </TextAreaBasic>
+    />
     <div class="action-wrapper flex-none"></div>
   </CardBasic>
 </template>

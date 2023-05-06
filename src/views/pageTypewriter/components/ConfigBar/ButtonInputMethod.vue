@@ -49,7 +49,7 @@ const changeInputMethod = (
 
 <template>
   <ButtonDropdown @command="changeInputMethod">
-    <ButtonBase :icon-src="iconPath"></ButtonBase>
+    <ButtonBase :icon-src="iconPath" />
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item

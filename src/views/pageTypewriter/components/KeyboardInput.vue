@@ -195,11 +195,9 @@ const keyboardLayout: KeyboardOption = {
   <div>
     <div class="keyboard-layout">
       <template v-for="(options, index) in keyboardLayout.layout" :key="index">
-        <WidgetRow v-if="options.type === 'row'" :options="options"></WidgetRow>
-        <WidgetKey v-else-if="options.type === 'key'" :options="options">
-        </WidgetKey>
-        <WidgetSpan v-else-if="options.type === 'span'" :options="options">
-        </WidgetSpan>
+        <WidgetRow v-if="options.type === 'row'" :options="options" />
+        <WidgetKey v-else-if="options.type === 'key'" :options="options" />
+        <WidgetSpan v-else-if="options.type === 'span'" :options="options" />
       </template>
     </div>
   </div>

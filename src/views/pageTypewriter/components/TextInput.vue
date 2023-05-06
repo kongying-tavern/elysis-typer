@@ -14,8 +14,7 @@ const { text } = useTextInput();
       :autofocus="true"
       resize="none"
       placeholder="请输入文本内容…"
-    >
-    </el-input>
+    />
   </div>
 </template>
 

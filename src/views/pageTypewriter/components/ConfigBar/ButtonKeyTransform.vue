@@ -15,6 +15,5 @@ const toggle = () => {
     :icon-src="ImgTransformChar"
     :active="config.keyTransform"
     @click="toggle()"
-  >
-  </ButtonBase>
+  />
 </template>

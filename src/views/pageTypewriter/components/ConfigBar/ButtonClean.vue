@@ -7,5 +7,5 @@ const { clear } = useTextInput();
 </script>
 
 <template>
-  <ButtonBase :icon-src="ImgTrash" @click="clear()"></ButtonBase>
+  <ButtonBase :icon-src="ImgTrash" @click="clear()" />
 </template>

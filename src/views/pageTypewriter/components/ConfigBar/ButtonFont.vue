@@ -28,7 +28,7 @@ const changeFont = (fontOpt: FontNode) => {
 
 <template>
   <ButtonDropdown @command="changeFont">
-    <ButtonBase :icon-src="ImgFontFamily"></ButtonBase>
+    <ButtonBase :icon-src="ImgFontFamily" />
     <template #dropdown>
       <div class="flex flex-col">
         <div class="flex-none">

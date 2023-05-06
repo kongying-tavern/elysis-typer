@@ -19,10 +19,8 @@ withDefaults(defineProps<Props>(), {
 <template>
   <div class="keyboard-component keyboard-layout keyboard-row flex flex-row">
     <template v-for="(widgetOption, index) in options.children" :key="index">
-      <WidgetKey v-if="widgetOption.type === 'key'" :options="widgetOption">
-      </WidgetKey>
-      <WidgetSpan v-if="widgetOption.type === 'span'" :options="widgetOption">
-      </WidgetSpan>
+      <WidgetKey v-if="widgetOption.type === 'key'" :options="widgetOption" />
+      <WidgetSpan v-if="widgetOption.type === 'span'" :options="widgetOption" />
     </template>
   </div>
 </template>

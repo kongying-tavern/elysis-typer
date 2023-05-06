@@ -32,8 +32,7 @@ const switchConvertDirection = () => {
       :icon-src="ImgContentArrow"
       :color="variables.color_arrow"
       @click="switchConvertDirection()"
-    >
-    </SvgIcon>
+    />
     <ButtonBasic class="flex-1" size="large" :clickable="false">
       英语
     </ButtonBasic>

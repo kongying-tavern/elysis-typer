@@ -9,12 +9,12 @@ import ActionBar from "./components/ActionBar.vue";
 
 <template>
   <main class="main-container flex flex-col fixed inset-0 gap-y-3 px-5 py-4">
-    <TransformSwitcher class="flex-none mb-3"></TransformSwitcher>
-    <InputArea class="flex-none"></InputArea>
-    <PreviewArea class="flex-auto"></PreviewArea>
+    <TransformSwitcher class="flex-none mb-3" />
+    <InputArea class="flex-none" />
+    <PreviewArea class="flex-auto" />
 
-    <KeyboardInput class="flex-none"></KeyboardInput>
-    <ActionBar class="flex-none"></ActionBar>
+    <KeyboardInput class="flex-none" />
+    <ActionBar class="flex-none" />
   </main>
 </template>
 

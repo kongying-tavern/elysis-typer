@@ -29,16 +29,14 @@ const fontClass = computed(() => {
       :class="{ ...fontClass }"
       :autosize="{ minRows: 2, maxRows: 4 }"
       placeholder="输入内容"
-    >
-    </TextAreaBasic>
+    />
     <div class="action-wrapper flex-none">
       <SvgIcon
         class="action-button"
         :color="variables.color_clear_btn"
         :icon-src="ImgClose"
         @click="clear()"
-      >
-      </SvgIcon>
+      />
     </div>
   </CardBasic>
 </template>

@@ -29,8 +29,7 @@ const onChange = (newText: string) => {
     :autosize="autosize"
     type="textarea"
     @input="onChange"
-  >
-  </el-input>
+  />
 </template>
 
 <style scoped lang="scss">

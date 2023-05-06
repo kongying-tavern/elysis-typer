@@ -7,9 +7,9 @@ import ButtonFont from "./ConfigBar/ButtonFont.vue";
 
 <template>
   <div class="flex flex-row space-x-1">
-    <ButtonClean></ButtonClean>
-    <ButtonInputMethod></ButtonInputMethod>
-    <ButtonKeyTransform></ButtonKeyTransform>
-    <ButtonFont></ButtonFont>
+    <ButtonClean />
+    <ButtonInputMethod />
+    <ButtonKeyTransform />
+    <ButtonFont />
   </div>
 </template>
