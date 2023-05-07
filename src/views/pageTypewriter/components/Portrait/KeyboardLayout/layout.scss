@@ -1,0 +1,40 @@
+@use '@/assets/vars/color.scss' as *;
+
+$keyboard-gap-x: 0.24rem;
+$keyboard-gap-y: 0.4rem;
+$keyboard-max-width: 60rem;
+$keyboard-key-radius: 0.4rem;
+$keyboard-key-height: 3.6rem;
+$keyboard-key-line-height: 1.6rem;
+$keyboard-key-font-size: 1.6rem;
+
+@mixin keyboard-wrapper {
+  .keyboard-wrapper {
+    display: grid;
+    column-gap: $keyboard-gap-x;
+    row-gap: $keyboard-gap-y;
+    max-width: $keyboard-max-width;
+    margin: 0 auto;
+  }
+}
+
+@mixin keyboard-key {
+  .keyboard-key {
+    position: relative;
+    background-color: $color-white;
+    color: $color-gray-5;
+    border: 0.1rem solid $color-gray-2;
+    border-radius: $keyboard-key-radius;
+    height: $keyboard-key-height;
+
+    .text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      line-height: $keyboard-key-line-height;
+      font-size: $keyboard-key-font-size;
+      font-weight: bold;
+    }
+  }
+}

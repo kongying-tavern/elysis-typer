@@ -2,8 +2,8 @@
 import TransformSwitcher from "./components/Portrait/TransformSwitcher/TransformSwitcher.vue";
 import InputArea from "./components/Portrait/InputArea/InputArea.vue";
 import PreviewArea from "./components/Portrait/PreviewArea/PreviewArea.vue";
+import KeyboardLayout from "./components/Portrait/KeyboardLayout/KeyboardLayout.vue";
 
-import KeyboardInput from "./components/KeyboardInput.vue";
 import ActionBar from "./components/ActionBar.vue";
 </script>
 
@@ -12,8 +12,8 @@ import ActionBar from "./components/ActionBar.vue";
     <TransformSwitcher class="flex-none mb-3" />
     <InputArea class="flex-none" />
     <PreviewArea class="flex-auto" />
+    <KeyboardLayout class="flex-none" />
 
-    <KeyboardInput class="flex-none" />
     <ActionBar class="flex-none" />
   </main>
 </template>

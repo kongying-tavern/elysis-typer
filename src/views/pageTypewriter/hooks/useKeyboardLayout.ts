@@ -1,0 +1,202 @@
+import { Key } from "ts-keycode-enum";
+import type { KeyboardLayoutOption, KeyboardKeyOption } from "@/shared";
+
+const keyboardLayout: KeyboardLayoutOption = {
+  colTemplate: "repeat(20, .5fr)",
+  rowTemplate: "auto",
+  areaTemplate: [
+    "q     q     w     w     e     e     r     r     t     t     y     y     u     u     i     i     o         o         p         p",
+    ".     a     a     s     s     d     d     f     f     g     g     h     h     j     j     k     k         l         l         .",
+    "shift shift z     z     x     x     c     c     v     v     b     b     n     n     m     m     backspace backspace backspace backspace",
+    "space space space space space space space space space space space space space space space space enter     enter     enter     enter",
+  ],
+};
+
+const keyboardKeys: KeyboardKeyOption[] = [
+  {
+    type: "key",
+    keyCode: Key.A,
+    area: "a",
+    displayMode: ["text"],
+    text: "A",
+  },
+  {
+    type: "key",
+    keyCode: Key.B,
+    area: "b",
+    displayMode: ["text"],
+    text: "B",
+  },
+  {
+    type: "key",
+    keyCode: Key.C,
+    area: "c",
+    displayMode: ["text"],
+    text: "C",
+  },
+  {
+    type: "key",
+    keyCode: Key.D,
+    area: "d",
+    displayMode: ["text"],
+    text: "D",
+  },
+  {
+    type: "key",
+    keyCode: Key.E,
+    area: "e",
+    displayMode: ["text"],
+    text: "E",
+  },
+  {
+    type: "key",
+    keyCode: Key.F,
+    area: "f",
+    displayMode: ["text"],
+    text: "F",
+  },
+  {
+    type: "key",
+    keyCode: Key.G,
+    area: "g",
+    displayMode: ["text"],
+    text: "G",
+  },
+  {
+    type: "key",
+    keyCode: Key.H,
+    area: "h",
+    displayMode: ["text"],
+    text: "H",
+  },
+  {
+    type: "key",
+    keyCode: Key.I,
+    area: "i",
+    displayMode: ["text"],
+    text: "I",
+  },
+  {
+    type: "key",
+    keyCode: Key.J,
+    area: "j",
+    displayMode: ["text"],
+    text: "J",
+  },
+  {
+    type: "key",
+    keyCode: Key.K,
+    area: "k",
+    displayMode: ["text"],
+    text: "K",
+  },
+  {
+    type: "key",
+    keyCode: Key.L,
+    area: "l",
+    displayMode: ["text"],
+    text: "L",
+  },
+  {
+    type: "key",
+    keyCode: Key.M,
+    area: "m",
+    displayMode: ["text"],
+    text: "M",
+  },
+  {
+    type: "key",
+    keyCode: Key.N,
+    area: "n",
+    displayMode: ["text"],
+    text: "N",
+  },
+  {
+    type: "key",
+    keyCode: Key.O,
+    area: "o",
+    displayMode: ["text"],
+    text: "O",
+  },
+  {
+    type: "key",
+    keyCode: Key.P,
+    area: "p",
+    displayMode: ["text"],
+    text: "P",
+  },
+  {
+    type: "key",
+    keyCode: Key.Q,
+    area: "q",
+    displayMode: ["text"],
+    text: "Q",
+  },
+  {
+    type: "key",
+    keyCode: Key.R,
+    area: "r",
+    displayMode: ["text"],
+    text: "R",
+  },
+  {
+    type: "key",
+    keyCode: Key.S,
+    area: "s",
+    displayMode: ["text"],
+    text: "S",
+  },
+  {
+    type: "key",
+    keyCode: Key.T,
+    area: "t",
+    displayMode: ["text"],
+    text: "T",
+  },
+  {
+    type: "key",
+    keyCode: Key.U,
+    area: "u",
+    displayMode: ["text"],
+    text: "U",
+  },
+  {
+    type: "key",
+    keyCode: Key.V,
+    area: "v",
+    displayMode: ["text"],
+    text: "V",
+  },
+  {
+    type: "key",
+    keyCode: Key.W,
+    area: "w",
+    displayMode: ["text"],
+    text: "W",
+  },
+  {
+    type: "key",
+    keyCode: Key.X,
+    area: "x",
+    displayMode: ["text"],
+    text: "X",
+  },
+  {
+    type: "key",
+    keyCode: Key.Y,
+    area: "y",
+    displayMode: ["text"],
+    text: "Y",
+  },
+  {
+    type: "key",
+    keyCode: Key.Z,
+    area: "z",
+    displayMode: ["text"],
+    text: "Z",
+  },
+];
+
+export const useKeyboardLayout = () => {
+  return { keyboardLayout, keyboardKeys };
+};
