@@ -41,7 +41,7 @@ const switchConvertDirection = () => {
 
 <style scoped lang="scss">
 .switcher-wrapper {
-  column-gap: 4.3rem;
+  column-gap: 1.72rem;
   justify-content: center;
 
   &.from-eng {

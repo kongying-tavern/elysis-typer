@@ -42,9 +42,4 @@ const layoutStyles = computed(() => {
 <style scoped lang="scss">
 @use "./layout.scss";
 @include layout.keyboard-wrapper;
-
-.keyboard-card {
-  padding-top: 0.6rem !important;
-  padding-bottom: 0.6rem !important;
-}
 </style>

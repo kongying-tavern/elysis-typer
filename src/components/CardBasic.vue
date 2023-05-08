@@ -28,22 +28,28 @@ const props = withDefaults(defineProps<Props>(), {
 @include shadow.box-shadow;
 
 $card-corner-radius: 0.8rem;
-$card-padding-large: 1.4rem;
-$card-padding-medium: 1.15rem;
-$card-padding-small: 0.9rem;
+$card-padding-large-x: 1.4rem;
+$card-padding-large-y: 0.8rem;
+$card-padding-medium-x: 1.15rem;
+$card-padding-medium-y: 0.6rem;
+$card-padding-small-x: 0.9rem;
+$card-padding-small-y: 0.4rem;
 
 $size-list: (
   (
     size: "large",
-    padding: $card-padding-large,
+    paddingX: $card-padding-large-x,
+    paddingY: $card-padding-large-y,
   ),
   (
     size: "medium",
-    padding: $card-padding-medium,
+    paddingX: $card-padding-medium-x,
+    paddingY: $card-padding-medium-y,
   ),
   (
     size: "small",
-    padding: $card-padding-small,
+    paddingX: $card-padding-small-x,
+    paddingY: $card-padding-small-y,
   )
 );
 
@@ -54,7 +60,7 @@ $size-list: (
   // Sizes
   @each $size in $size-list {
     &.size-#{map.get($size, "size")} {
-      padding: map.get($size, "padding");
+      padding: map.get($size, "paddingY") map.get($size, "paddingX");
     }
   }
 }
