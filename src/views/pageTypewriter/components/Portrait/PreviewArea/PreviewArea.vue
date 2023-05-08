@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
+import { useConfig, useTextInput } from "../../../hooks";
 import CardBasic from "@/components/CardBasic.vue";
 import TextAreaBasic from "@/components/TextAreaBasic.vue";
-import { useConfig, useTextInput } from "../../../hooks";
 
 const { config } = useConfig();
 const { text } = useTextInput();

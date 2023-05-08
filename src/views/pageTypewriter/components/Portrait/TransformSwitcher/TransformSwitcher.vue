@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ConfigConvertDirectionEnum } from "@/shared";
+import { useConfig } from "../../../hooks";
+import variables from "./variables.module.scss";
 import SvgIcon from "@/components/SvgIcon.vue";
 import ButtonBasic from "@/components/ButtonBasic.vue";
-import { useConfig } from "../../../hooks";
 import ImgContentArrow from "../../../assets/convert-arrow.svg";
-import variables from "./variables.module.scss";
 
 const { config } = useConfig();
 

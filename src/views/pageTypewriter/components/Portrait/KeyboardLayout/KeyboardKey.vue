@@ -2,8 +2,9 @@
 import _ from "lodash";
 import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
-import type { KeyboardKeyOption, KeyboardKeyDisplayType } from "@/shared";
+import type { KeyboardKeyOption } from "@/shared";
 import { useConfig, useTextInput } from "../../../hooks";
+import SvgIcon from "@/components/SvgIcon.vue";
 
 const props = defineProps<{
   options: KeyboardKeyOption;

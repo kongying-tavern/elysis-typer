@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import _ from "lodash";
 import { computed } from "vue";
+import { useKeyboardLayout } from "../../../hooks";
 import CardBasic from "@/components/CardBasic.vue";
 import KeyboardKey from "./KeyboardKey.vue";
-import { useKeyboardLayout } from "../../../hooks";
 
 const { keyboardLayout, keyboardKeys } = useKeyboardLayout();
 

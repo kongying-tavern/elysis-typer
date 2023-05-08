@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
+import { useConfig, useTextInput } from "../../../hooks";
+import variables from "./variables.module.scss";
 import CardBasic from "@/components/CardBasic.vue";
 import TextAreaBasic from "@/components/TextAreaBasic.vue";
 import SvgIcon from "@/components/SvgIcon.vue";
 import ImgClose from "../../../assets/close.svg";
-import { useConfig, useTextInput } from "../../../hooks";
-import variables from "./variables.module.scss";
 
 const { config } = useConfig();
 const { text, clear } = useTextInput();
