@@ -59,6 +59,12 @@ const keyPress = () => {
     <div v-if="widgetOptions.displayMode.indexOf('text') !== -1" class="text">
       {{ widgetOptions.text }}
     </div>
+    <div v-if="widgetOptions.displayMode.indexOf('icon') !== -1" class="icon">
+      <SvgIcon
+        :icon-src="widgetOptions.icon!"
+        :color="widgetOptions.iconColor"
+      />
+    </div>
   </div>
 </template>
 

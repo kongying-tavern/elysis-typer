@@ -16,4 +16,5 @@ export interface KeyboardKeyOption {
   displayMode: KeyboardKeyDisplayType[];
   text?: string;
   icon?: string;
+  iconColor?: string | ComputedRef<string>;
 }

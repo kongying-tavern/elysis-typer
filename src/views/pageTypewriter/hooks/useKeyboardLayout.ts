@@ -1,5 +1,11 @@
 import { Key } from "ts-keycode-enum";
 import type { KeyboardLayoutOption, KeyboardKeyOption } from "@/shared";
+import { useTextInput } from "./useTextInput";
+import variables from "../components/Portrait/KeyboardLayout/variables.module.scss";
+import ImgEnter from "../assets/key-enter.svg";
+import ImgBackspace from "../assets/key-backspace.svg";
+
+const { trimLast } = useTextInput();
 
 const keyboardLayout: KeyboardLayoutOption = {
   colTemplate: "repeat(20, .5fr)",
@@ -13,6 +19,7 @@ const keyboardLayout: KeyboardLayoutOption = {
 };
 
 const keyboardKeys: KeyboardKeyOption[] = [
+  // 字母按键区
   {
     type: "key",
     keyCode: Key.A,
@@ -194,6 +201,34 @@ const keyboardKeys: KeyboardKeyOption[] = [
     area: "z",
     displayMode: ["text"],
     text: "Z",
+  },
+  // 其他按键区
+  {
+    type: "key",
+    keyCode: Key.Space,
+    area: "space",
+    displayMode: ["text"],
+    text: " ",
+  },
+  {
+    type: "key",
+    keyCode: Key.Enter,
+    area: "enter",
+    input: "\n",
+    displayMode: ["icon"],
+    icon: ImgEnter,
+    iconColor: variables.icon_color_default,
+  },
+  {
+    type: "key",
+    keyCode: Key.Backspace,
+    area: "backspace",
+    input: () => {
+      trimLast();
+    },
+    displayMode: ["icon"],
+    icon: ImgBackspace,
+    iconColor: variables.icon_color_default,
   },
 ];
 
