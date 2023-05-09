@@ -23,10 +23,10 @@ const widgetOptions = computed(() => {
   return _.defaults({}, props.options, defaultOptions) as KeyboardKeyOption;
 });
 
-const fontClass = computed(() => {
+const fontStyle = computed(() => {
   if (config.value.convertDirection === ConfigConvertDirectionEnum.TO_ENG) {
     return {
-      [config.value.font.tag]: true,
+      fontFamily: config.value.font.tag,
     };
   }
   return {};
@@ -52,8 +52,7 @@ const keyPress = () => {
 <template>
   <div
     class="keyboard-component keyboard-widget keyboard-key cursor-pointer"
-    :class="{ ...fontClass }"
-    :style="{ ...layoutStyle }"
+    :style="{ ...fontStyle, ...layoutStyle }"
     @click="keyPress()"
   >
     <div v-if="widgetOptions.displayMode.indexOf('text') !== -1" class="text">

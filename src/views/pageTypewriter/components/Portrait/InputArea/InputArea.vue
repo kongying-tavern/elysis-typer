@@ -11,10 +11,10 @@ import ImgClose from "../../../assets/close.svg";
 const { config } = useConfig();
 const { text, clear } = useTextInput();
 
-const fontClass = computed(() => {
+const fontStyle = computed(() => {
   if (config.value.convertDirection === ConfigConvertDirectionEnum.TO_ENG) {
     return {
-      [config.value.font.tag]: true,
+      fontFamily: config.value.font.tag,
     };
   }
   return {};
@@ -26,7 +26,7 @@ const fontClass = computed(() => {
     <TextAreaBasic
       v-model="text"
       class="flex-auto"
-      :class="{ ...fontClass }"
+      :style="{ ...fontStyle }"
       :autosize="{ minRows: 2, maxRows: 4 }"
       placeholder="输入内容"
     />

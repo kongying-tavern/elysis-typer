@@ -8,10 +8,10 @@ import TextAreaBasic from "@/components/TextAreaBasic.vue";
 const { config } = useConfig();
 const { text } = useTextInput();
 
-const fontClass = computed(() => {
+const fontStyle = computed(() => {
   if (config.value.convertDirection === ConfigConvertDirectionEnum.FROM_ENG) {
     return {
-      [config.value.font.tag]: true,
+      fontFamily: config.value.font.tag,
     };
   }
   return {};
@@ -23,7 +23,7 @@ const fontClass = computed(() => {
     <TextAreaBasic
       v-model="text"
       class="flex-auto"
-      :class="{ ...fontClass }"
+      :style="{ ...fontStyle }"
       readonly
     />
     <div class="action-wrapper flex-none"></div>

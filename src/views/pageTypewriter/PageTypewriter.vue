@@ -1,10 +1,15 @@
 <script setup lang="ts">
+import { useFont } from "./hooks";
 import TransformSwitcher from "./components/Portrait/TransformSwitcher/TransformSwitcher.vue";
 import InputArea from "./components/Portrait/InputArea/InputArea.vue";
 import PreviewArea from "./components/Portrait/PreviewArea/PreviewArea.vue";
 import KeyboardLayout from "./components/Portrait/KeyboardLayout/KeyboardLayout.vue";
 
 import ActionBar from "./components/ActionBar.vue";
+
+const { installFonts } = useFont();
+
+installFonts();
 </script>
 
 <template>
@@ -20,8 +25,6 @@ import ActionBar from "./components/ActionBar.vue";
 
 <style scoped lang="scss">
 @use "@/assets/vars/color.scss" as *;
-@use "@/assets/effects/fonts.scss";
-@include fonts.fonts(true);
 
 .main-container {
   background-color: $color-bg;
