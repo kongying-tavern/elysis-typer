@@ -1,0 +1,36 @@
+$arrow-width: 1.36rem;
+$arrow-height: 0.88rem;
+
+@mixin arrow {
+  .dropdown-arrow {
+    &::after {
+      content: '';
+      display: inline-block;
+      width: $arrow-width;
+      height: $arrow-height;
+      position: relative;
+      overflow: hidden;
+      background-image: url('../../../assets/dropdown-arrow.svg');
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      background-size: 100% 100%;
+    }
+
+    &.dropdown-expanded::after {
+      transform-origin: center;
+      transform: scaleY(-1);
+    }
+  }
+}
+
+@mixin extend($span, $color) {
+  &::after {
+    margin-left: $span;
+    transform: translateX(100vw);
+    filter: drop-shadow(-100vw 0 0 #{$color});
+  }
+
+  &.dropdown-expanded::after {
+    transform: translateX(100vw) scaleY(-1);
+  }
+}

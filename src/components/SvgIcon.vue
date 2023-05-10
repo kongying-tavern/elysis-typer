@@ -14,7 +14,7 @@ withDefaults(defineProps<Props>(), {
     <img
       :src="iconSrc"
       :style="{
-        filter: `drop-shadow(-100vw 0px 0px ${color})`,
+        filter: `drop-shadow(-100vw 0 0 ${color})`,
       }"
     />
   </div>
