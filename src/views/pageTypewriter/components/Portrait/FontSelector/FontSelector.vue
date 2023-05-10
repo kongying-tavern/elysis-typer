@@ -46,7 +46,7 @@ const changeFont = (fontOption: FontNode) => {
               :class="{ active: fontItem.tag === config.font.tag }"
               @click="changeFont(fontItem)"
             >
-              {{ fontItem.abbr || fontItem.label }}
+              {{ fontItem.label }}
             </div>
           </div>
         </div>

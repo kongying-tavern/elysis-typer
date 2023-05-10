@@ -41,7 +41,7 @@ const switchConvertDirection = () => {
       type="primary"
       @click="toggleSelector()"
     >
-      {{ config.font.label || config.font.abbr }}
+      {{ config.font.abbr || config.font.label }}
     </ButtonBasic>
     <SvgIcon
       class="arrow flex-none cursor-pointer"
