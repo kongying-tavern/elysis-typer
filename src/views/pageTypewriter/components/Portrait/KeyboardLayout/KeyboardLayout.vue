@@ -5,7 +5,7 @@ import { useKeyboardLayout } from "../../../hooks";
 import CardBasic from "@/components/CardBasic.vue";
 import KeyboardKey from "./KeyboardKey.vue";
 
-const { keyboardLayout, keyboardKeys } = useKeyboardLayout();
+const { keyboardLayout, keyboardKeys, keyboardVisible } = useKeyboardLayout();
 
 const layoutStyles = computed(() => {
   let areaTemplate!: string;
@@ -28,7 +28,7 @@ const layoutStyles = computed(() => {
 </script>
 
 <template>
-  <CardBasic class="keyboard-card">
+  <CardBasic v-if="keyboardVisible" class="keyboard-card">
     <div class="keyboard-wrapper" :style="{ ...layoutStyles }">
       <KeyboardKey
         v-for="(keyOptions, index) in keyboardKeys"

@@ -1,3 +1,4 @@
+import { ref } from "vue";
 import { Key } from "ts-keycode-enum";
 import type { KeyboardLayoutOption, KeyboardKeyOption } from "@/shared";
 import { useTextInput } from "./useTextInput";
@@ -232,6 +233,27 @@ const keyboardKeys: KeyboardKeyOption[] = [
   },
 ];
 
+const keyboardVisible = ref(false);
+
+const openKeyboard = () => {
+  keyboardVisible.value = true;
+};
+
+const closeKeyboard = () => {
+  keyboardVisible.value = false;
+};
+
+const toggleKeyboard = () => {
+  keyboardVisible.value = !keyboardVisible.value;
+};
+
 export const useKeyboardLayout = () => {
-  return { keyboardLayout, keyboardKeys };
+  return {
+    keyboardLayout,
+    keyboardKeys,
+    keyboardVisible,
+    openKeyboard,
+    closeKeyboard,
+    toggleKeyboard,
+  };
 };

@@ -5,6 +5,7 @@ import FontSelector from "./components/Portrait/FontSelector/FontSelector.vue";
 import InputArea from "./components/Portrait/InputArea/InputArea.vue";
 import PreviewArea from "./components/Portrait/PreviewArea/PreviewArea.vue";
 import KeyboardLayout from "./components/Portrait/KeyboardLayout/KeyboardLayout.vue";
+import ActionBar from "./components/Portrait/ActionBar/ActionBar.vue";
 
 const { installFonts } = useFont();
 
@@ -18,6 +19,7 @@ installFonts();
     <InputArea class="flex-none" />
     <PreviewArea class="flex-auto" />
     <KeyboardLayout class="flex-none" />
+    <ActionBar class="flex-none" />
   </main>
 </template>
 
