@@ -33,7 +33,7 @@ const fontStyle = computed(() => {
     <div class="action-wrapper flex-none">
       <SvgIcon
         class="action-button"
-        :color="variables.color_clear_btn"
+        :color="variables.clear_btn_color"
         :icon-src="ImgClose"
         @click="clear()"
       />

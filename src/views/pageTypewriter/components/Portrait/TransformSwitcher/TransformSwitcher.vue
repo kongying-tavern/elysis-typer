@@ -46,7 +46,7 @@ const switchConvertDirection = () => {
     <SvgIcon
       class="arrow flex-none cursor-pointer"
       :icon-src="ImgContentArrow"
-      :color="variables.color_arrow"
+      :color="variables.arrow_color"
       @click="switchConvertDirection()"
     />
     <ButtonBasic class="flex-auto" size="large" :clickable="false">
