@@ -20,7 +20,7 @@ const keyboardColor = computed(() =>
 </script>
 
 <template>
-  <CardBasic class="cursor-pointer" @click="toggleKeyboard()">
+  <CardBasic class="action-bar-card cursor-pointer" @click="toggleKeyboard()">
     <div class="action-bar-wrapper flex flex-row" :class="{ ...keyboardClass }">
       <SvgIcon class="icon" :color="keyboardColor" :icon-src="ImgKeyboard" />
       <i class="arrow dropdown-arrow"></i>
@@ -33,10 +33,16 @@ const keyboardColor = computed(() =>
 @use "../assets/dropdown-arrow.scss";
 @include dropdown-arrow.arrow;
 
+$card-padding-y: 1.4rem;
 $icon-width: 3.2rem;
 $arrow-gap: 0.72rem;
 $arrow-color-default: $color-gray-5;
 $arrow-color-active: $color-primary-1;
+
+.action-bar-card {
+  padding-top: $card-padding-y !important;
+  padding-bottom: $card-padding-y !important;
+}
 
 .action-bar-wrapper {
   width: auto;
