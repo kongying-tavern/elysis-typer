@@ -1,18 +1,32 @@
 <script setup lang="ts">
-import TextPreview from "./components/TextPreview.vue";
-import ConfigBar from "./components/ConfigBar.vue";
-import InputArea from "./components/InputArea.vue";
+import { useFont } from "./hooks";
+import TransformSwitcher from "./components/Portrait/TransformSwitcher/TransformSwitcher.vue";
+import FontSelector from "./components/Portrait/FontSelector/FontSelector.vue";
+import InputArea from "./components/Portrait/InputArea/InputArea.vue";
+import PreviewArea from "./components/Portrait/PreviewArea/PreviewArea.vue";
+import KeyboardLayout from "./components/Portrait/KeyboardLayout/KeyboardLayout.vue";
+import ActionBar from "./components/Portrait/ActionBar/ActionBar.vue";
+
+const { installFonts } = useFont();
+
+installFonts();
 </script>
 
 <template>
-  <main class="flex flex-col fixed top-0 bottom-0 left-0 right-0 p-3 space-y-3">
-    <TextPreview class="flex-auto"></TextPreview>
-    <InputArea class="flex-none"></InputArea>
-    <ConfigBar class="flex-none"></ConfigBar>
+  <main class="main-container flex flex-col fixed inset-0 gap-y-3 px-5 py-4">
+    <TransformSwitcher class="flex-none" />
+    <FontSelector class="flex-none" />
+    <InputArea class="flex-none" />
+    <PreviewArea class="flex-auto" />
+    <KeyboardLayout class="flex-none" />
+    <ActionBar class="flex-none" />
   </main>
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/style/font.scss";
-@include font.fonts(true);
+@use "@/assets/vars/color.scss" as *;
+
+.main-container {
+  background-color: $color-bg;
+}
 </style>

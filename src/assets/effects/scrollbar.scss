@@ -1,0 +1,34 @@
+@use 'sass:math';
+@use '@/assets/vars/color.scss' as *;
+
+$scrollbar-width: 0.4rem;
+$scrollbar-radius: math.div($scrollbar-width, 2);
+$scrollbar-color-track: $color-gray-4;
+$scrollbar-color-thumb: $color-gray-3;
+
+@mixin scrollbar {
+  .scrollbar,
+  .scrollbar :deep(*) {
+    &::-webkit-scrollbar {
+      border-radius: $scrollbar-radius;
+      background-color: $scrollbar-color-track;
+    }
+
+    &::-webkit-scrollbar:horizontal {
+      height: $scrollbar-width;
+    }
+
+    &::-webkit-scrollbar:vertical {
+      width: $scrollbar-width;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: $scrollbar-radius;
+      background-color: $scrollbar-color-thumb;
+    }
+  }
+}

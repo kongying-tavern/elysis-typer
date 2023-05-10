@@ -1,0 +1,15 @@
+$action-wrapper-offset: 0.4rem;
+$action-btn-size: 1.76rem;
+
+@mixin action-wrapper {
+  .action-wrapper {
+    padding: $action-wrapper-offset 0;
+    width: $action-btn-size;
+
+    .action-button {
+      cursor: pointer;
+      height: $action-btn-size;
+      width: $action-btn-size;
+    }
+  }
+}

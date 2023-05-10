@@ -1,9 +1,14 @@
-import type { Config, ConfigInputMethod } from "@/shared";
+import type { Config } from "@/shared";
+import { ConfigInputMethodEnum, ConfigConvertDirectionEnum } from "@/shared";
+import { useFont } from "./useFont";
+
+const { fontDefaultOption } = useFont();
 
 const config: Ref<Config> = ref({
-  inputMethod: "keyboard" as ConfigInputMethod,
+  inputMethod: ConfigInputMethodEnum.KEYBOARD,
   keyTransform: true,
-  font: "font-teyvat-regular",
+  convertDirection: ConfigConvertDirectionEnum.FROM_ENG,
+  font: fontDefaultOption,
 });
 
 export const useConfig = () => {

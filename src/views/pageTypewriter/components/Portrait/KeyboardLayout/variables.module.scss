@@ -1,0 +1,5 @@
+@use '@/assets/vars/color.scss' as *;
+
+:export {
+  icon_color_default: $color-gray-5;
+}
