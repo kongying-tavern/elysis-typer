@@ -16,6 +16,7 @@
     "svgo": "svgo -rf src"
   },
   "dependencies": {
+    "@vueuse/core": "^10.1.2",
     "element-plus": "^2.2.32",
     "lodash": "^4.17.21",
     "pinia": "^2.0.28",
