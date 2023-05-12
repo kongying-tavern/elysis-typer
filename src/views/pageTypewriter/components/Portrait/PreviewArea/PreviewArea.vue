@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
 import { useConfig, useTextInput } from "../../../hooks";
-import CardBasic from "@/components/CardBasic.vue";
+import CardBasic from "@/components/CardBasic/CardBasic.vue";
 import TextAreaBasic from "@/components/TextAreaBasic.vue";
 
 const { config } = useConfig();

@@ -1,0 +1,14 @@
+@use '@/assets/vars/color.scss' as *;
+
+$card-colors-light: (
+  card-bg-color: $color-white,
+);
+
+$card-colors-dark: (
+  card-bg-color: $color-white,
+);
+
+$card-colors: (
+  light: $card-colors-light,
+  dark: $card-colors-dark,
+);

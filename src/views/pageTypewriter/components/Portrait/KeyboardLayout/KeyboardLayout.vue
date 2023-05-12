@@ -2,7 +2,7 @@
 import _ from "lodash";
 import { computed } from "vue";
 import { useKeyboardLayout } from "../../../hooks";
-import CardBasic from "@/components/CardBasic.vue";
+import CardBasic from "@/components/CardBasic/CardBasic.vue";
 import KeyboardKey from "./KeyboardKey.vue";
 
 const { keyboardLayout, keyboardKeys, keyboardVisible } = useKeyboardLayout();
