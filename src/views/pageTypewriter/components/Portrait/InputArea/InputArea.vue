@@ -42,13 +42,16 @@ const fontStyle = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/vars/color.scss" as *;
+@use "@/assets/effects/theme.scss";
 @use "../assets/action-wrapper.scss";
+@use "./color.scss" as *;
 @include action-wrapper.action-wrapper;
 
-.textarea {
-  &:focus-within {
-    outline: 0.1rem solid $color-primary-2;
+@include theme.themeify($colors) {
+  .textarea {
+    &:focus-within {
+      outline: 0.1rem solid theme.t("focus-outline-color");
+    }
   }
 }
 </style>
