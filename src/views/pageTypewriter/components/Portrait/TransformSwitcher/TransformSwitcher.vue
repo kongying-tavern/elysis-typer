@@ -44,7 +44,7 @@ const switchConvertDirection = () => {
       {{ config.font.abbr || config.font.label }}
     </ButtonBasic>
     <SvgIcon
-      class="arrow flex-none cursor-pointer"
+      class="conv-arrow flex-none cursor-pointer"
       :icon-src="ImgContentArrow"
       :color="variables.arrow_color"
       @click="switchConvertDirection()"
@@ -60,8 +60,11 @@ const switchConvertDirection = () => {
 @use "../assets/dropdown-arrow.scss";
 @include dropdown-arrow.arrow;
 
+$column-gap: 1.72rem;
+$conv-arrow-width: 2.96rem;
+
 .switcher-wrapper {
-  column-gap: 1.72rem;
+  column-gap: $column-gap;
   justify-content: center;
 
   &.from-eng {
@@ -75,8 +78,8 @@ const switchConvertDirection = () => {
     @include dropdown-arrow.extend(0.36rem, $color-white);
   }
 
-  .arrow {
-    width: 2.96rem;
+  .conv-arrow {
+    width: $conv-arrow-width;
   }
 }
 </style>
