@@ -40,6 +40,5 @@ const layoutStyles = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@use "./layout.scss";
-@include layout.keyboard-wrapper;
+@use "./keyboard-layout.scss" as *;
 </style>

@@ -1,0 +1,18 @@
+@use '@/assets/vars/color.scss' as *;
+
+$colors-light: (
+  keyboard-key-bg-color: $color-white,
+  keyboard-key-text-color: $color-gray-5,
+  keyboard-key-border-color: $color-gray-2,
+);
+
+$colors-dark: (
+  keyboard-key-bg-color: $color-white,
+  keyboard-key-text-color: $color-gray-5,
+  keyboard-key-border-color: $color-gray-2,
+);
+
+$colors: (
+  light: $colors-light,
+  dark: $colors-dark,
+);

@@ -68,6 +68,5 @@ const keyPress = () => {
 </template>
 
 <style scoped lang="scss">
-@use "./layout.scss";
-@include layout.keyboard-key;
+@use "./keyboard-key.scss" as *;
 </style>
