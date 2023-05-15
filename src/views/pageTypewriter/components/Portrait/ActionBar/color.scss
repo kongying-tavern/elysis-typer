@@ -1,0 +1,16 @@
+@use '@/assets/vars/color.scss' as *;
+
+$colors-light: (
+  arrow-default-color: $color-gray-5,
+  arrow-active-color: $color-primary-1,
+);
+
+$colors-dark: (
+  arrow-default-color: $color-gray-5,
+  arrow-active-color: $color-primary-1,
+);
+
+$colors: (
+  light: $colors-light,
+  dark: $colors-dark,
+);

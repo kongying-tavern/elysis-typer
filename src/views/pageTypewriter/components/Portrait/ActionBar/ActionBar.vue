@@ -29,40 +29,47 @@ const keyboardColor = computed(() =>
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/vars/color.scss" as *;
+@use "@/assets/effects/theme.scss";
 @use "../assets/dropdown-arrow.scss";
+@use "./color.scss" as *;
 @include dropdown-arrow.arrow;
 
 $card-padding-y: 1.4rem;
 $icon-width: 3.2rem;
 $arrow-gap: 0.72rem;
-$arrow-color-default: $color-gray-5;
-$arrow-color-active: $color-primary-1;
 
-.action-bar-card {
-  padding-top: $card-padding-y !important;
-  padding-bottom: $card-padding-y !important;
-}
-
-.action-bar-wrapper {
-  width: auto;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-  .icon {
-    width: $icon-width;
-  }
-  .arrow {
-    font-size: 0;
-    line-height: 0;
-    @include dropdown-arrow.extend($arrow-gap, $arrow-color-default);
-    transform: scaleY(-1);
+@include theme.themeify($colors) {
+  .action-bar-card {
+    padding-top: card-padding-y !important;
+    padding-bottom: $card-padding-y !important;
   }
 
-  &.active {
+  .action-bar-wrapper {
+    width: auto;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    .icon {
+      width: $icon-width;
+    }
     .arrow {
-      @include dropdown-arrow.extend($arrow-gap, $arrow-color-active);
-      transform: scaleY(1);
+      font-size: 0;
+      line-height: 0;
+      @include dropdown-arrow.extend(
+        $arrow-gap,
+        theme.t("arrow-default-color")
+      );
+      transform: scaleY(-1);
+    }
+
+    &.active {
+      .arrow {
+        @include dropdown-arrow.extend(
+          $arrow-gap,
+          theme.t("arrow-active-color")
+        );
+        transform: scaleY(1);
+      }
     }
   }
 }
