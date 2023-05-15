@@ -5,7 +5,7 @@ import { useConfig, useTextInput } from "../../../hooks";
 import variables from "./variables.module.scss";
 import CardBasic from "@/components/CardBasic/CardBasic.vue";
 import TextAreaBasic from "@/components/TextAreaBasic/TextAreaBasic.vue";
-import SvgIcon from "@/components/SvgIcon.vue";
+import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 import ImgClose from "../../../assets/close.svg";
 
 const { config } = useConfig();

@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { useKeyboardLayout } from "../../../hooks";
 import variables from "./variables.module.scss";
 import CardBasic from "@/components/CardBasic/CardBasic.vue";
-import SvgIcon from "@/components/SvgIcon.vue";
+import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 import ImgKeyboard from "../../../assets/keyboard.svg";
 
 const { keyboardVisible, toggleKeyboard } = useKeyboardLayout();

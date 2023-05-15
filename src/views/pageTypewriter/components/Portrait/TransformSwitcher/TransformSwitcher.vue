@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
 import { useConfig, useFontSelector } from "../../../hooks";
 import variables from "./variables.module.scss";
-import SvgIcon from "@/components/SvgIcon.vue";
+import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 import ButtonBasic from "@/components/ButtonBasic/ButtonBasic.vue";
 import ImgContentArrow from "../../../assets/convert-arrow.svg";
 

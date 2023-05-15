@@ -4,7 +4,7 @@ import type { FontNode } from "@/shared";
 import { useConfig, useFont, useFontSelector } from "../../../hooks";
 import variables from "./variables.module.scss";
 import CardBasic from "@/components/CardBasic/CardBasic.vue";
-import SvgIcon from "@/components/SvgIcon.vue";
+import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 
 const wrapperRef = ref<HTMLDivElement | null>(null);
 
