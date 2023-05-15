@@ -1,0 +1,18 @@
+@use '@/assets/vars/color.scss' as *;
+
+$textarea-colors-light: (
+  textarea-bg-color: $color-white,
+  textarea-text-color: $color-gray-2,
+  textarea-placeholder-color: $color-gray-3,
+);
+
+$textarea-colors-dark: (
+  textarea-bg-color: $color-white,
+  textarea-text-color: $color-gray-2,
+  textarea-placeholder-color: $color-gray-3,
+);
+
+$textarea-colors: (
+  light: $textarea-colors-light,
+  dark: $textarea-colors-dark,
+);
