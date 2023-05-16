@@ -1,5 +1,23 @@
+@use '@/assets/vars/color.scss' as *;
+@use './theme.scss';
+
+$shadow-colors-light: (
+  shadow-color: rgb(0 0 0 / 10%),
+);
+
+$shadow-colors-dark: (
+  shadow-color: rgb(0 0 0 / 10%),
+);
+
+$shadow-colors: (
+  light: $shadow-colors-light,
+  dark: $shadow-colors-dark,
+);
+
 @mixin box-shadow {
-  .box-shadow {
-    box-shadow: 0.3rem 0.3rem 0.36rem 0.04rem rgb(0 0 0 / 10%);
+  @include theme.themeify($shadow-colors) {
+    .box-shadow {
+      box-shadow: 0.3rem 0.3rem 0.36rem 0.04rem theme.t('shadow-color');
+    }
   }
 }
