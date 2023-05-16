@@ -1,3 +1,4 @@
+import { computed } from "vue";
 import type { FontGroupNode, FontNode } from "@/shared";
 import ImgLogoGenshin from "../assets/logo-genshin.svg";
 import ImgLogoStarrail from "../assets/logo-starrail.svg";
@@ -90,6 +91,22 @@ const fontOptions: FontGroupNode[] = [
 
 const fontDefaultOption: FontNode = fontOptions[0].children[0];
 
+const fontGroupMap = computed(() => {
+  const map: { [key: string]: string } = {};
+  for (const fontGroup of fontOptions) {
+    const groupId: string = fontGroup.id || "";
+    for (const fontItem of fontGroup.children) {
+      const fontTag = fontItem.tag;
+      map[fontTag] = groupId;
+    }
+  }
+  return map;
+});
+
+const findFontGroup = (fontTag: string): string => {
+  return fontGroupMap.value[fontTag] || "";
+};
+
 const installFonts = async () => {
   for (const fontGroup of fontOptions) {
     for (const font of fontGroup.children) {
@@ -101,5 +118,10 @@ const installFonts = async () => {
 };
 
 export const useFont = () => {
-  return { fontOptions, fontDefaultOption, installFonts };
+  return {
+    fontOptions,
+    fontDefaultOption,
+    findFontGroup,
+    installFonts,
+  };
 };
