@@ -1,0 +1,24 @@
+@use '@/assets/vars/color.scss' as *;
+
+$colors-light: (
+  group-icon-default-color: $color-gray-7,
+  group-icon-active-color: $color-primary-1,
+  group-separator-default-color: $color-gray-7,
+  group-separator-active-color: $color-primary-1,
+  item-text-default-color: $color-gray-2,
+  item-text-active-color: $color-primary-1,
+);
+
+$colors-dark: (
+  group-icon-default-color: $color-gray-7,
+  group-icon-active-color: $color-primary-1,
+  group-separator-default-color: $color-gray-7,
+  group-separator-active-color: $color-primary-1,
+  item-text-default-color: $color-gray-2,
+  item-text-active-color: $color-primary-1,
+);
+
+$colors: (
+  light: $colors-light,
+  dark: $colors-dark,
+);

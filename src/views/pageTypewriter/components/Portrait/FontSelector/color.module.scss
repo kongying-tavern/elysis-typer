@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use './color.scss' as *;
+
+:export {
+  light--group-icon-default-color:
+    map.get($colors-light,
+    'group-icon-default-color');
+  dark--group-icon-default-color:
+    map.get($colors-dark,
+    'group-icon-default-color');
+  light--group-icon-active-color:
+    map.get($colors-light,
+    'group-icon-active-color');
+  dark--group-icon-active-color:
+    map.get($colors-dark,
+    'group-icon-active-color');
+}

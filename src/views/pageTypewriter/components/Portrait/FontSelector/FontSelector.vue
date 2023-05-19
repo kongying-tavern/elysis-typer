@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import type { FontNode } from "@/shared";
+import { getThemeColor } from "@/assets/effects/theme";
 import { useConfig, useFont, useFontSelector } from "../../../hooks";
-import variables from "./variables.module.scss";
+import varDim from "./dim.module.scss";
+import varColor from "./color.module.scss";
 import CardBasic from "@/components/CardBasic/CardBasic.vue";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 
@@ -14,7 +16,7 @@ const { selectorVisible, closeSelector } = useFontSelector();
 
 const dialogStyle = computed(() => {
   return {
-    maxHeight: `calc(100vh - ${wrapperRef.value?.offsetTop}px - ${variables.dialog_span_bottom} - ${variables.dialog_padding_y} * 2)`,
+    maxHeight: `calc(100vh - ${wrapperRef.value?.offsetTop}px - ${varDim["dialog-span-bottom"]} - ${varDim["dialog-padding-y"]} * 2)`,
   };
 });
 
@@ -24,6 +26,13 @@ const changeFont = (fontOption: FontNode) => {
 };
 
 const selectedFontGroup = computed(() => findFontGroup(config.value.font.tag));
+
+const fontGroupIconColor = computed(() => {
+  return {
+    default: getThemeColor(varColor, "group-icon-default-color"),
+    active: getThemeColor(varColor, "group-icon-active-color"),
+  };
+});
 </script>
 
 <template>
@@ -39,7 +48,11 @@ const selectedFontGroup = computed(() => findFontGroup(config.value.font.tag));
           <div class="icon flex-none">
             <SvgIcon
               class="icon-img"
-              :color="variables.dialog_icon_color"
+              :color="
+                fontGroupIconColor[
+                  fontGroup.id === selectedFontGroup ? 'active' : 'default'
+                ]
+              "
               :icon-src="fontGroup.icon!"
             />
           </div>
@@ -62,69 +75,63 @@ const selectedFontGroup = computed(() => findFontGroup(config.value.font.tag));
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/vars/color.scss" as *;
 @use "@/assets/effects/scrollbar.scss";
-@use "./dialog.scss" as *;
+@use "@/assets/effects/theme.scss";
+@use "./dim.scss" as *;
+@use "./color.scss" as *;
 @include scrollbar.scrollbar;
 
-$list-gap: 3.2rem;
-$list-logo-space: 14rem;
-$list-logo-width: 7.2rem;
-$list-separator-width: 0.4rem;
-$list-item-line-height: 1;
-$list-item-font-size: 1.6rem;
-$list-item-gap: 1.44rem;
-$list-item-indent: 1.6rem;
+@include theme.themeify($colors) {
+  .selector-wrapper {
+    position: relative;
+  }
 
-.selector-wrapper {
-  position: relative;
-}
+  .selector-dialog {
+    position: absolute;
+    width: 100%;
+    z-index: 100000000;
+    padding: $dialog-padding-y $dialog-padding-x !important;
 
-.selector-dialog {
-  position: absolute;
-  width: 100%;
-  z-index: 100000000;
-  padding: $dialog-padding-y $dialog-padding-x !important;
+    .content {
+      overflow-y: auto;
+      row-gap: $list-gap;
 
-  .content {
-    overflow-y: auto;
-    row-gap: $list-gap;
+      .group {
+        align-items: center;
 
-    .group {
-      align-items: center;
-
-      &.active {
-        .separator {
-          background-color: $color-primary-1;
-        }
-      }
-
-      .icon {
-        width: $list-logo-space;
-        text-align: center;
-        .icon-img {
-          width: $list-logo-width;
-        }
-      }
-      .separator {
-        width: $list-separator-width;
-        align-self: stretch;
-        background-color: $color-gray-7;
-      }
-
-      .list {
-        padding-left: $list-item-indent;
-        .item {
-          font-size: $list-item-font-size;
-          line-height: $list-item-line-height;
-          overflow: hidden;
-          word-break: break-all;
-          color: $color-gray-2;
-          & + .item {
-            margin-top: $list-item-gap;
+        &.active {
+          .separator {
+            background-color: theme.t("group-separator-active-color");
           }
-          &.active {
-            color: $color-primary-1;
+        }
+
+        .icon {
+          width: $list-logo-space;
+          text-align: center;
+          .icon-img {
+            width: $list-logo-width;
+          }
+        }
+        .separator {
+          width: $list-separator-width;
+          align-self: stretch;
+          background-color: theme.t("group-separator-default-color");
+        }
+
+        .list {
+          padding-left: $list-item-indent;
+          .item {
+            font-size: $list-item-font-size;
+            line-height: $list-item-line-height;
+            overflow: hidden;
+            word-break: break-all;
+            color: theme.t("item-text-default-color");
+            & + .item {
+              margin-top: $list-item-gap;
+            }
+            &.active {
+              color: theme.t("item-text-active-color");
+            }
           }
         }
       }

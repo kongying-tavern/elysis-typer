@@ -1,9 +1,0 @@
-@use '@/assets/vars/color.scss' as *;
-@use './dialog.scss' as *;
-
-:export {
-  dialog_span_bottom: $dialog-span-bottom;
-  dialog_padding_x: $dialog-padding-x;
-  dialog_padding_y: $dialog-padding-y;
-  dialog_icon_color: $color-gray-5;
-}
