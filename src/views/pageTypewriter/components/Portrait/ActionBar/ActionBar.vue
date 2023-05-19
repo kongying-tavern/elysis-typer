@@ -4,6 +4,7 @@ import { getThemeColor } from "@/assets/effects/theme";
 import { useKeyboardLayout } from "../../../hooks";
 import varColor from "./color.module.scss";
 import CardBasic from "@/components/CardBasic/CardBasic.vue";
+import DropdownArrow from "@/components/DropdownArrow/DropdownArrow.vue";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 import ImgKeyboard from "../../../assets/keyboard.svg";
 
@@ -18,6 +19,12 @@ const keyboardIconColor = computed(() =>
     ? getThemeColor(varColor, "keyboard-active-color")
     : getThemeColor(varColor, "keyboard-default-color")
 );
+
+const arrowColor = computed(() =>
+  keyboardVisible.value
+    ? getThemeColor(varColor, "arrow-active-color")
+    : getThemeColor(varColor, "arrow-default-color")
+);
 </script>
 
 <template>
@@ -28,16 +35,19 @@ const keyboardIconColor = computed(() =>
         :color="keyboardIconColor"
         :icon-src="ImgKeyboard"
       />
-      <i class="arrow dropdown-arrow"></i>
+      <DropdownArrow
+        class="arrow"
+        :expanded="keyboardVisible"
+        :expanded-color="arrowColor"
+        :collapsed-color="arrowColor"
+      />
     </div>
   </CardBasic>
 </template>
 
 <style scoped lang="scss">
 @use "@/assets/effects/theme.scss";
-@use "../assets/dropdown-arrow.scss";
 @use "./color.scss" as *;
-@include dropdown-arrow.arrow;
 
 $card-padding-y: 1.4rem;
 $icon-width: 3.2rem;
@@ -58,23 +68,7 @@ $arrow-gap: 0.72rem;
       width: $icon-width;
     }
     .arrow {
-      font-size: 0;
-      line-height: 0;
-      @include dropdown-arrow.extend(
-        $arrow-gap,
-        theme.t("arrow-default-color")
-      );
-      transform: scaleY(-1);
-    }
-
-    &.active {
-      .arrow {
-        @include dropdown-arrow.extend(
-          $arrow-gap,
-          theme.t("arrow-active-color")
-        );
-        transform: scaleY(1);
-      }
+      margin-left: $arrow-gap;
     }
   }
 }
