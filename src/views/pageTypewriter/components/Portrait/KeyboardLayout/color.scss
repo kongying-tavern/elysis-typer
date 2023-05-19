@@ -1,15 +1,17 @@
 @use '@/assets/vars/color.scss' as *;
 
 $colors-light: (
-  keyboard-key-bg-color: $color-white,
-  keyboard-key-text-color: $color-gray-5,
   keyboard-key-border-color: $color-gray-2,
+  keyboard-key-bg-default-color: $color-white,
+  keyboard-key-text-default-color: $color-gray-5,
+  keyboard-key-icon-default-color: $color-gray-5,
 );
 
 $colors-dark: (
-  keyboard-key-bg-color: $color-white,
-  keyboard-key-text-color: $color-gray-5,
   keyboard-key-border-color: $color-gray-2,
+  keyboard-key-bg-default-color: $color-white,
+  keyboard-key-text-default-color: $color-gray-5,
+  keyboard-key-icon-default-color: $color-gray-5,
 );
 
 $colors: (

@@ -3,7 +3,9 @@ import _ from "lodash";
 import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
 import type { KeyboardKeyOption } from "@/shared";
+import { getThemeColor } from "@/assets/effects/theme";
 import { useConfig, useTextInput } from "../../../hooks";
+import varColor from "./color.module.scss";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 
 const props = defineProps<{
@@ -38,6 +40,10 @@ const layoutStyle = computed(() => {
   };
 });
 
+const keyIconColor = computed(() =>
+  getThemeColor(varColor, "keyboard-key-icon-default-color")
+);
+
 const keyPress = () => {
   if (widgetOptions.value.input === undefined) {
     append(widgetOptions.value.text as string);
@@ -59,10 +65,7 @@ const keyPress = () => {
       {{ widgetOptions.text }}
     </div>
     <div v-if="widgetOptions.displayMode.indexOf('icon') !== -1" class="icon">
-      <SvgIcon
-        :icon-src="widgetOptions.icon!"
-        :color="(widgetOptions.iconColor as string)"
-      />
+      <SvgIcon :icon-src="widgetOptions.icon!" :color="keyIconColor" />
     </div>
   </div>
 </template>

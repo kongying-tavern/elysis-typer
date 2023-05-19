@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use './color.scss' as *;
+
+:export {
+  light--keyboard-key-icon-default-color:
+    map.get($colors-light,
+    'keyboard-key-icon-default-color');
+  dark--keyboard-key-icon-default-color:
+    map.get($colors-dark,
+    'keyboard-key-icon-default-color');
+}

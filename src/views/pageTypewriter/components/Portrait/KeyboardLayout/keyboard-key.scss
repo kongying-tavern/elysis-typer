@@ -9,8 +9,8 @@ $keyboard-key-font-size: 1.6rem;
 @include theme.themeify($colors) {
   .keyboard-key {
     position: relative;
-    background-color: theme.t('keyboard-key-bg-color');
-    color: theme.t('keyboard-key-text-color');
+    background-color: theme.t('keyboard-key-bg-default-color');
+    color: theme.t('keyboard-key-text-default-color');
     border: 0.1rem solid theme.t('keyboard-key-border-color');
     border-radius: $keyboard-key-radius;
     height: $keyboard-key-height;

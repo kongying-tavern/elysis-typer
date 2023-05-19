@@ -2,7 +2,6 @@ import { ref } from "vue";
 import { Key } from "ts-keycode-enum";
 import type { KeyboardLayoutOption, KeyboardKeyOption } from "@/shared";
 import { useTextInput } from "./useTextInput";
-import variables from "../components/Portrait/KeyboardLayout/variables.module.scss";
 import ImgEnter from "../assets/key-enter.svg";
 import ImgBackspace from "../assets/key-backspace.svg";
 
@@ -218,7 +217,6 @@ const keyboardKeys: KeyboardKeyOption[] = [
     input: "\n",
     displayMode: ["icon"],
     icon: ImgEnter,
-    iconColor: variables.icon_color_default,
   },
   {
     type: "key",
@@ -229,7 +227,6 @@ const keyboardKeys: KeyboardKeyOption[] = [
     },
     displayMode: ["icon"],
     icon: ImgBackspace,
-    iconColor: variables.icon_color_default,
   },
 ];
 
