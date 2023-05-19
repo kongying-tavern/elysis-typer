@@ -1,0 +1,14 @@
+@use '@/assets/vars/color.scss' as *;
+
+$colors-light: (
+  conv-arrow-color: $color-gray-1,
+);
+
+$colors-dark: (
+  conv-arrow-color: $color-gray-1,
+);
+
+$colors: (
+  light: $colors-light,
+  dark: $colors-dark,
+);

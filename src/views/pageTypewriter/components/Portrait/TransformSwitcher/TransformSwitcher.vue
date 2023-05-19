@@ -2,7 +2,8 @@
 import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
 import { useConfig, useFontSelector } from "../../../hooks";
-import variables from "./variables.module.scss";
+import { getThemeColor } from "@/assets/effects/theme";
+import varColor from "./color.module.scss";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 import ButtonBasic from "@/components/ButtonBasic/ButtonBasic.vue";
 import ImgContentArrow from "../../../assets/convert-arrow.svg";
@@ -15,6 +16,10 @@ const directionClass = computed(() => {
     [config.value.convertDirection]: true,
   };
 });
+
+const convertArrowColor = computed(() =>
+  getThemeColor(varColor, "conv-arrow-color")
+);
 
 const selectorArrowClass = computed(() => {
   return {
@@ -46,7 +51,7 @@ const switchConvertDirection = () => {
     <SvgIcon
       class="conv-arrow flex-none cursor-pointer"
       :icon-src="ImgContentArrow"
-      :color="variables.arrow_color"
+      :color="convertArrowColor"
       @click="switchConvertDirection()"
     />
     <ButtonBasic class="flex-auto" size="large" :clickable="false">

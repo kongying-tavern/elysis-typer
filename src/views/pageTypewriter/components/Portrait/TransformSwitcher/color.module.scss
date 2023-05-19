@@ -1,0 +1,7 @@
+@use 'sass:map';
+@use './color.scss' as *;
+
+:export {
+  light--conv-arrow-color: map.get($colors-light, 'conv-arrow-color');
+  dark--conv-arrow-color: map.get($colors-dark, 'conv-arrow-color');
+}
