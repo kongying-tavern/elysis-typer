@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { getThemeColor } from "@/assets/effects/theme";
 import { useKeyboardLayout } from "../../../hooks";
-import variables from "./variables.module.scss";
+import varColor from "./color.module.scss";
 import CardBasic from "@/components/CardBasic/CardBasic.vue";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 import ImgKeyboard from "../../../assets/keyboard.svg";
@@ -12,17 +13,21 @@ const keyboardClass = computed(() =>
   keyboardVisible.value ? { active: true } : {}
 );
 
-const keyboardColor = computed(() =>
+const keyboardIconColor = computed(() =>
   keyboardVisible.value
-    ? variables.btn_color_active
-    : variables.btn_color_default
+    ? getThemeColor(varColor, "keyboard-active-color")
+    : getThemeColor(varColor, "keyboard-default-color")
 );
 </script>
 
 <template>
   <CardBasic class="action-bar-card cursor-pointer" @click="toggleKeyboard()">
     <div class="action-bar-wrapper flex flex-row" :class="{ ...keyboardClass }">
-      <SvgIcon class="icon" :color="keyboardColor" :icon-src="ImgKeyboard" />
+      <SvgIcon
+        class="icon"
+        :color="keyboardIconColor"
+        :icon-src="ImgKeyboard"
+      />
       <i class="arrow dropdown-arrow"></i>
     </div>
   </CardBasic>
