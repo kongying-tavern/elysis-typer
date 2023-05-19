@@ -55,7 +55,7 @@ $arrow-gap: 0.72rem;
 
 @include theme.themeify($colors) {
   .action-bar-card {
-    padding-top: card-padding-y !important;
+    padding-top: $card-padding-y !important;
     padding-bottom: $card-padding-y !important;
   }
 
