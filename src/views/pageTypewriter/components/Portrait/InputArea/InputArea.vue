@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
+import { getThemeColor } from "@/assets/effects/theme";
 import { useConfig, useTextInput } from "../../../hooks";
-import variables from "./variables.module.scss";
+import varColor from "./color.module.scss";
 import CardBasic from "@/components/CardBasic/CardBasic.vue";
 import TextAreaBasic from "@/components/TextAreaBasic/TextAreaBasic.vue";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
@@ -19,6 +20,10 @@ const fontStyle = computed(() => {
   }
   return {};
 });
+
+const clearButtonColor = computed(() =>
+  getThemeColor(varColor, "clear-btn-color")
+);
 </script>
 
 <template>
@@ -33,7 +38,7 @@ const fontStyle = computed(() => {
     <div class="action-wrapper flex-none">
       <SvgIcon
         class="action-button"
-        :color="variables.clear_btn_color"
+        :color="clearButtonColor"
         :icon-src="ImgClose"
         @click="clear()"
       />
