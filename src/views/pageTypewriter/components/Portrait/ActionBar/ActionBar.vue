@@ -37,7 +37,7 @@ const arrowColor = computed(() =>
       />
       <DropdownArrow
         class="arrow"
-        :expanded="keyboardVisible"
+        :expanded="!keyboardVisible"
         :expanded-color="arrowColor"
         :collapsed-color="arrowColor"
       />
