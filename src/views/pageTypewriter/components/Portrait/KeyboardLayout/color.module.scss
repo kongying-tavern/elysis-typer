@@ -2,9 +2,11 @@
 @use './color.scss' as *;
 
 :export {
+  // Theme: Light
   light--keyboard-key-icon-default-color:
     map.get($colors-light,
     'keyboard-key-icon-default-color');
+  // Theme: Dark
   dark--keyboard-key-icon-default-color:
     map.get($colors-dark,
     'keyboard-key-icon-default-color');
