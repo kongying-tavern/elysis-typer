@@ -36,7 +36,7 @@ const switchConvertDirection = () => {
 </script>
 
 <template>
-  <div class="switcher-wrapper flex" :class="{ ...directionClass }">
+  <div class="switcher-wrapper flex select-none" :class="{ ...directionClass }">
     <ButtonBasic
       class="flex-auto"
       size="large"

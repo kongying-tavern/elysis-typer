@@ -28,7 +28,7 @@ const layoutStyles = computed(() => {
 </script>
 
 <template>
-  <CardBasic v-if="keyboardVisible" class="keyboard-card">
+  <CardBasic v-if="keyboardVisible" class="keyboard-card select-none">
     <div class="keyboard-wrapper" :style="{ ...layoutStyles }">
       <KeyboardKey
         v-for="(keyOptions, index) in keyboardKeys"

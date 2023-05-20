@@ -28,7 +28,10 @@ const arrowColor = computed(() =>
 </script>
 
 <template>
-  <CardBasic class="action-bar-card cursor-pointer" @click="toggleKeyboard()">
+  <CardBasic
+    class="action-bar-card cursor-pointer select-none"
+    @click="toggleKeyboard()"
+  >
     <div class="action-bar-wrapper flex flex-row" :class="{ ...keyboardClass }">
       <SvgIcon
         class="icon"

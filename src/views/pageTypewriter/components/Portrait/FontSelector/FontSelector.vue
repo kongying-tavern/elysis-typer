@@ -36,7 +36,7 @@ const fontGroupIconColor = computed(() => {
 </script>
 
 <template>
-  <div ref="wrapperRef" class="selector-wrapper">
+  <div ref="wrapperRef" class="selector-wrapper select-none">
     <CardBasic v-if="selectorVisible" class="selector-dialog">
       <div class="content scrollbar flex flex-col" :style="{ ...dialogStyle }">
         <div
