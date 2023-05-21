@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import _ from "lodash";
-import { computed } from "vue";
+import { ref, computed } from "vue";
+import { useMousePressed } from "@vueuse/core";
+import type { MaybeElementRef } from "@vueuse/core";
 import { ConfigConvertDirectionEnum } from "@/shared";
 import type { KeyboardKeyOption } from "@/shared";
 import { getThemeColor } from "@/assets/effects/theme";
 import { useConfig, useTextInput } from "../../../hooks";
 import varColor from "./color.module.scss";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
+
+const wrapperRef = ref<HTMLDivElement | null>(null);
 
 const props = defineProps<{
   options: KeyboardKeyOption;
@@ -25,6 +29,17 @@ const widgetOptions = computed(() => {
   return _.defaults({}, props.options, defaultOptions) as KeyboardKeyOption;
 });
 
+const { pressed: isActive } = useMousePressed({
+  target: wrapperRef as MaybeElementRef,
+  drag: false,
+});
+
+const activeClass = computed(() => {
+  return {
+    active: isActive.value,
+  };
+});
+
 const fontStyle = computed(() => {
   if (config.value.convertDirection === ConfigConvertDirectionEnum.TO_ENG) {
     return {
@@ -41,7 +56,9 @@ const layoutStyle = computed(() => {
 });
 
 const keyIconColor = computed(() =>
-  getThemeColor(varColor, "keyboard-key-icon-default-color")
+  isActive.value
+    ? getThemeColor(varColor, "keyboard-key-icon-active-color")
+    : getThemeColor(varColor, "keyboard-key-icon-default-color")
 );
 
 const keyPress = () => {
@@ -57,7 +74,9 @@ const keyPress = () => {
 
 <template>
   <div
+    ref="wrapperRef"
     class="keyboard-component keyboard-widget keyboard-key cursor-pointer"
+    :class="{ ...activeClass }"
     :style="{ ...fontStyle, ...layoutStyle }"
     @click="keyPress()"
   >

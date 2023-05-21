@@ -10,8 +10,7 @@ $keyboard-key-font-size: 1.6rem;
   .keyboard-key {
     position: relative;
     background-color: theme.t('keyboard-key-bg-default-color');
-    color: theme.t('keyboard-key-text-default-color');
-    border: 0.1rem solid theme.t('keyboard-key-border-color');
+    border: 0.1rem solid theme.t('keyboard-key-border-default-color');
     border-radius: $keyboard-key-radius;
     height: $keyboard-key-height;
 
@@ -20,6 +19,7 @@ $keyboard-key-font-size: 1.6rem;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      color: theme.t('keyboard-key-text-default-color');
       line-height: $keyboard-key-line-height;
       font-size: $keyboard-key-font-size;
       font-weight: bold;
@@ -30,6 +30,24 @@ $keyboard-key-font-size: 1.6rem;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+    }
+
+    &.active {
+      background-color: theme.t('keyboard-key-bg-active-color');
+      border-color: theme.t('keyboard-key-border-active-color');
+
+      .text {
+        color: theme.t('keyboard-key-text-active-color');
+      }
+    }
+
+    &.hold {
+      background-color: theme.t('keyboard-key-bg-hold-color');
+      border-color: theme.t('keyboard-key-border-hold-color');
+
+      .text {
+        color: theme.t('keyboard-key-text-hold-color');
+      }
     }
   }
 }

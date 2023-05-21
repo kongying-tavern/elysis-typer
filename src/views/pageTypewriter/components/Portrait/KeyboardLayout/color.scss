@@ -1,17 +1,41 @@
 @use '@/assets/vars/color.scss' as *;
 
 $colors-light: (
-  keyboard-key-border-color: $color-gray-2,
   keyboard-key-bg-default-color: $color-white-1,
+  keyboard-key-border-default-color: $color-gray-2,
   keyboard-key-text-default-color: $color-gray-5,
   keyboard-key-icon-default-color: $color-gray-5,
+  keyboard-key-bg-hover-color: $color-white-1,
+  keyboard-key-border-hover-color: $color-gray-2,
+  keyboard-key-text-hover-color: $color-blue-2,
+  keyboard-key-icon-hover-color: $color-blue-2,
+  keyboard-key-bg-active-color: $color-blue-2,
+  keyboard-key-border-active-color: $color-gray-2,
+  keyboard-key-text-active-color: $color-white-1,
+  keyboard-key-icon-active-color: $color-white-1,
+  keyboard-key-bg-hold-color: $color-white-1,
+  keyboard-key-border-hold-color: $color-gray-2,
+  keyboard-key-text-hold-color: $color-blue-2,
+  keyboard-key-icon-hold-color: $color-blue-2,
 );
 
 $colors-dark: (
-  keyboard-key-border-color: $color-gray-2,
   keyboard-key-bg-default-color: $color-white-1,
+  keyboard-key-border-default-color: $color-gray-2,
   keyboard-key-text-default-color: $color-gray-5,
   keyboard-key-icon-default-color: $color-gray-5,
+  keyboard-key-bg-hover-color: $color-blue-2,
+  keyboard-key-border-hover-color: $color-gray-2,
+  keyboard-key-text-hover-color: $color-white-1,
+  keyboard-key-icon-hover-color: $color-white-1,
+  keyboard-key-bg-active-color: $color-blue-3,
+  keyboard-key-border-active-color: $color-gray-2,
+  keyboard-key-text-active-color: $color-white-1,
+  keyboard-key-icon-active-color: $color-white-1,
+  keyboard-key-bg-hold-color: $color-white-1,
+  keyboard-key-border-hold-color: $color-gray-2,
+  keyboard-key-text-hold-color: $color-blue-2,
+  keyboard-key-icon-hold-color: $color-blue-2,
 );
 
 $colors: (
