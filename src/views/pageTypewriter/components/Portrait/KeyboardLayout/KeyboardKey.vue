@@ -4,9 +4,9 @@ import { ref, computed } from "vue";
 import { useMousePressed } from "@vueuse/core";
 import type { MaybeElementRef } from "@vueuse/core";
 import { ConfigConvertDirectionEnum } from "@/shared";
-import type { KeyboardKeyOption } from "@/shared";
+import type { KeyboardKeyDecoration, KeyboardKeyOption } from "@/shared";
 import { getThemeColor } from "@/assets/effects/theme";
-import { useConfig, useTextInput } from "../../../hooks";
+import { useConfig, useTextInput, useKeyboardLayout } from "../../../hooks";
 import varColor from "./color.module.scss";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 
@@ -18,6 +18,7 @@ const props = defineProps<{
 
 const { config } = useConfig();
 const { append } = useTextInput();
+const { keyboardState } = useKeyboardLayout();
 
 const widgetOptions = computed(() => {
   let defaultOptions: KeyboardKeyOption = {
@@ -27,6 +28,16 @@ const widgetOptions = computed(() => {
     displayMode: [],
   };
   return _.defaults({}, props.options, defaultOptions) as KeyboardKeyOption;
+});
+
+const keyDecorate = computed(() => {
+  if (widgetOptions.value.decorate === undefined) {
+    return {} as KeyboardKeyDecoration;
+  } else if (typeof widgetOptions.value.decorate === "function") {
+    return widgetOptions.value.decorate(keyboardState.value, config.value.font);
+  } else {
+    return widgetOptions.value.decorate;
+  }
 });
 
 const { pressed: isActive } = useMousePressed({
@@ -55,19 +66,37 @@ const layoutStyle = computed(() => {
   };
 });
 
-const keyIconColor = computed(() =>
-  isActive.value
-    ? getThemeColor(varColor, "keyboard-key-icon-active-color")
-    : getThemeColor(varColor, "keyboard-key-icon-default-color")
-);
+const keyIconColor = computed(() => {
+  if (isActive.value) {
+    return getThemeColor(varColor, "keyboard-key-icon-active-color");
+  } else if (keyDecorate.value.classes?.hold) {
+    return getThemeColor(varColor, "keyboard-key-icon-hold-color");
+  } else {
+    return getThemeColor(varColor, "keyboard-key-icon-default-color");
+  }
+});
+
+const keyText = computed(() => {
+  let text = "";
+  if (widgetOptions.value.input === undefined) {
+    text = widgetOptions.value.text!;
+  } else if (typeof widgetOptions.value.input === "string") {
+    text = widgetOptions.value.input!;
+  }
+
+  if (config.value.font.meta?.allowCapsLock) {
+    if (keyboardState.value.capsLock) return text.toUpperCase();
+    else return text.toLowerCase();
+  } else {
+    return text.toUpperCase();
+  }
+});
 
 const keyPress = () => {
-  if (widgetOptions.value.input === undefined) {
-    append(widgetOptions.value.text as string);
-  } else if (typeof widgetOptions.value.input === "string") {
-    append(widgetOptions.value.input as string);
-  } else if (typeof widgetOptions.value.input === "function") {
+  if (typeof widgetOptions.value.input === "function") {
     widgetOptions.value.input(widgetOptions.value);
+  } else {
+    append(keyText.value);
   }
 };
 </script>
@@ -75,13 +104,13 @@ const keyPress = () => {
 <template>
   <div
     ref="wrapperRef"
+    :style="{ ...keyDecorate.styles, ...fontStyle, ...layoutStyle }"
     class="keyboard-component keyboard-widget keyboard-key cursor-pointer"
-    :class="{ ...activeClass }"
-    :style="{ ...fontStyle, ...layoutStyle }"
+    :class="{ ...keyDecorate.classes, ...activeClass }"
     @click="keyPress()"
   >
     <div v-if="widgetOptions.displayMode.indexOf('text') !== -1" class="text">
-      {{ widgetOptions.text }}
+      {{ keyText }}
     </div>
     <div v-if="widgetOptions.displayMode.indexOf('icon') !== -1" class="icon">
       <SvgIcon :icon-src="widgetOptions.icon!" :color="keyIconColor" />

@@ -1,11 +1,26 @@
 import { ref } from "vue";
 import { Key } from "ts-keycode-enum";
-import type { KeyboardLayoutOption, KeyboardKeyOption } from "@/shared";
+import type {
+  FontNode,
+  KeyboardLayoutOption,
+  KeyboardKeyOption,
+  KeyboardState,
+  KeyboardKeyDecoration,
+} from "@/shared";
 import { useTextInput } from "./useTextInput";
 import ImgEnter from "../assets/key-enter.svg";
 import ImgBackspace from "../assets/key-backspace.svg";
+import ImgCaps from "../assets/key-caps.svg";
 
 const { trimLast } = useTextInput();
+
+const keyboardState = ref<KeyboardState>({
+  capsLock: false,
+});
+
+const toggleCapsLock = () => {
+  keyboardState.value.capsLock = !keyboardState.value.capsLock;
+};
 
 const keyboardLayout: KeyboardLayoutOption = {
   colTemplate: "repeat(20, .5fr)",
@@ -13,7 +28,7 @@ const keyboardLayout: KeyboardLayoutOption = {
   areaTemplate: [
     "q     q     w     w     e     e     r     r     t     t     y     y     u     u     i     i     o         o         p         p",
     ".     a     a     s     s     d     d     f     f     g     g     h     h     j     j     k     k         l         l         .",
-    "shift shift z     z     x     x     c     c     v     v     b     b     n     n     m     m     backspace backspace backspace backspace",
+    "caps  caps  z     z     x     x     c     c     v     v     b     b     n     n     m     m     backspace backspace backspace backspace",
     "space space space space space space space space space space space space space space space space enter     enter     enter     enter",
   ],
 };
@@ -228,6 +243,30 @@ const keyboardKeys: KeyboardKeyOption[] = [
     displayMode: ["icon"],
     icon: ImgBackspace,
   },
+  {
+    type: "key",
+    keyCode: Key.CapsLock,
+    area: "caps",
+    decorate: (
+      keyboardState: KeyboardState,
+      fontOption: FontNode
+    ): KeyboardKeyDecoration => {
+      const decorate: KeyboardKeyDecoration = {
+        styles: {},
+        classes: {},
+      } as KeyboardKeyDecoration;
+      if (!fontOption.meta?.allowCapsLock) {
+        decorate.styles.visibility = "hidden";
+      }
+      decorate.classes.hold = keyboardState.capsLock;
+      return decorate;
+    },
+    input: () => {
+      toggleCapsLock();
+    },
+    displayMode: ["icon"],
+    icon: ImgCaps,
+  },
 ];
 
 const keyboardVisible = ref(false);
@@ -246,6 +285,8 @@ const toggleKeyboard = () => {
 
 export const useKeyboardLayout = () => {
   return {
+    keyboardState,
+    toggleCapsLock,
     keyboardLayout,
     keyboardKeys,
     keyboardVisible,
