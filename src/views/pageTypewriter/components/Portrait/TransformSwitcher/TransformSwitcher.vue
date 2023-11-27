@@ -7,7 +7,7 @@ import varColor from "./color.module.scss";
 import DropdownArrow from "@/components/DropdownArrow/DropdownArrow.vue";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 import ButtonBasic from "@/components/ButtonBasic/ButtonBasic.vue";
-import ImgContentArrow from "../../../assets/convert-arrow.svg";
+import ImgIconContentArrow from "../../../assets/icon-convert-arrow.svg";
 
 const { config } = useConfig();
 const { selectorVisible, toggleSelector } = useFontSelector();
@@ -53,7 +53,7 @@ const switchConvertDirection = () => {
     </ButtonBasic>
     <SvgIcon
       class="conv-arrow flex-none cursor-pointer"
-      :icon-src="ImgContentArrow"
+      :icon-src="ImgIconContentArrow"
       :color="convertArrowColor"
       @click="switchConvertDirection()"
     />

@@ -7,7 +7,7 @@ import varColor from "./color.module.scss";
 import CardBasic from "@/components/CardBasic/CardBasic.vue";
 import TextAreaBasic from "@/components/TextAreaBasic/TextAreaBasic.vue";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
-import ImgClose from "../../../assets/close.svg";
+import ImgIconClose from "../../../assets/icon-close.svg";
 
 const { config } = useConfig();
 const { text, clear } = useTextInput();
@@ -39,7 +39,7 @@ const clearButtonColor = computed(() =>
       <SvgIcon
         class="action-button"
         :color="clearButtonColor"
-        :icon-src="ImgClose"
+        :icon-src="ImgIconClose"
         @click="clear()"
       />
     </div>

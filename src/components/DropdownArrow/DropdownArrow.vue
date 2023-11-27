@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
-import ImgDropdownArrow from "./assets/dropdown-arrow.svg";
+import ImgIconDropdownArrow from "./assets/icon-dropdown-arrow.svg";
 
 const props = defineProps<{
   expanded: boolean;
@@ -25,7 +25,7 @@ const arrowColor = computed(() =>
     class="dropdown-arrow-wrapper"
     :class="{ ...arrowClass }"
     :color="arrowColor"
-    :icon-src="ImgDropdownArrow"
+    :icon-src="ImgIconDropdownArrow"
   />
 </template>
 

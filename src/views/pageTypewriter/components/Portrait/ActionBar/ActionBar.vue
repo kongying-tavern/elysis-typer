@@ -6,7 +6,7 @@ import varColor from "./color.module.scss";
 import CardBasic from "@/components/CardBasic/CardBasic.vue";
 import DropdownArrow from "@/components/DropdownArrow/DropdownArrow.vue";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
-import ImgKeyboard from "../../../assets/keyboard.svg";
+import ImgIconKeyboard from "../../../assets/icon-keyboard.svg";
 
 const { keyboardVisible, toggleKeyboard } = useKeyboardLayout();
 
@@ -36,7 +36,7 @@ const arrowColor = computed(() =>
       <SvgIcon
         class="icon"
         :color="keyboardIconColor"
-        :icon-src="ImgKeyboard"
+        :icon-src="ImgIconKeyboard"
       />
       <DropdownArrow
         class="arrow"
