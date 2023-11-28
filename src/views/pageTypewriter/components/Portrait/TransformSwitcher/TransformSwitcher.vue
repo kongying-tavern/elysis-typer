@@ -19,11 +19,11 @@ const directionClass = computed(() => {
 });
 
 const convertArrowColor = computed(() =>
-  getThemeColor(varColor, "conv-arrow-color")
+  getThemeColor(varColor, "conv-arrow-color"),
 );
 
 const selectorArrowColor = computed(() =>
-  getThemeColor(varColor, "dropdown-arrow-color")
+  getThemeColor(varColor, "dropdown-arrow-color"),
 );
 
 const switchConvertDirection = () => {

@@ -9,7 +9,7 @@ import AutoImport from "unplugin-auto-import/vite";
 const env = loadEnv(
   process.env.NODE_ENV as string,
   resolve(process.cwd(), "env"),
-  "VITE_"
+  "VITE_",
 );
 
 export default defineConfig({

@@ -249,7 +249,7 @@ const keyboardKeys: KeyboardKeyOption[] = [
     area: "caps",
     decorate: (
       keyboardState: KeyboardState,
-      fontOption: FontNode
+      fontOption: FontNode,
     ): KeyboardKeyDecoration => {
       const decorate: KeyboardKeyDecoration = {
         styles: {},

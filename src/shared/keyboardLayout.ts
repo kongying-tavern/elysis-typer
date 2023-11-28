@@ -24,7 +24,7 @@ export interface KeyboardKeyOption {
     | KeyboardKeyDecoration
     | ((
         keyboardState: KeyboardState,
-        fontOption: FontNode
+        fontOption: FontNode,
       ) => KeyboardKeyDecoration);
   displayMode: KeyboardKeyDisplayType[];
   text?: string;

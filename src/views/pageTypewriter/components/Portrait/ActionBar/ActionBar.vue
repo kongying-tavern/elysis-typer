@@ -11,19 +11,19 @@ import ImgIconKeyboard from "../../../assets/icon-keyboard.svg";
 const { keyboardVisible, toggleKeyboard } = useKeyboardLayout();
 
 const keyboardClass = computed(() =>
-  keyboardVisible.value ? { active: true } : {}
+  keyboardVisible.value ? { active: true } : {},
 );
 
 const keyboardIconColor = computed(() =>
   keyboardVisible.value
     ? getThemeColor(varColor, "keyboard-active-color")
-    : getThemeColor(varColor, "keyboard-default-color")
+    : getThemeColor(varColor, "keyboard-default-color"),
 );
 
 const arrowColor = computed(() =>
   keyboardVisible.value
     ? getThemeColor(varColor, "arrow-active-color")
-    : getThemeColor(varColor, "arrow-default-color")
+    : getThemeColor(varColor, "arrow-default-color"),
 );
 </script>
 

@@ -7,7 +7,7 @@ type ThemeColorExportMap = { [key: string]: string };
 
 export const getThemeColor = (
   colorMap: ThemeColorExportMap,
-  colorKey: string
+  colorKey: string,
 ) => {
   const themeColorKey = `${globalSettings.value.theme || ""}--${colorKey}`;
   const themeColorVal: string = get(colorMap, themeColorKey);

@@ -3,9 +3,8 @@ $keyboard-gap-y: 0.4rem;
 $keyboard-max-width: 60rem;
 
 .keyboard-wrapper {
-  column-gap: $keyboard-gap-x;
+  gap: $keyboard-gap-y $keyboard-gap-x;
   display: grid;
   margin: 0 auto;
   max-width: $keyboard-max-width;
-  row-gap: $keyboard-gap-y;
 }

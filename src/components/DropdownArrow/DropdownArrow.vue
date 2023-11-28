@@ -16,7 +16,7 @@ const arrowClass = computed(() => {
 });
 
 const arrowColor = computed(() =>
-  props.expanded ? props.expandedColor : props.collapsedColor
+  props.expanded ? props.expandedColor : props.collapsedColor,
 );
 </script>
 

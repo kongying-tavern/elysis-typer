@@ -22,7 +22,7 @@ const fontStyle = computed(() => {
 });
 
 const clearButtonColor = computed(() =>
-  getThemeColor(varColor, "clear-btn-color")
+  getThemeColor(varColor, "clear-btn-color"),
 );
 </script>
 
