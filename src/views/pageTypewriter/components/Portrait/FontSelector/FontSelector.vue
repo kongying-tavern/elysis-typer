@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import type { FontNode } from "@/shared";
+import { getThemeColor } from "@/assets/effects/theme";
 import { useConfig, useFont, useFontSelector } from "../../../hooks";
-import variables from "./variables.module.scss";
-import CardBasic from "@/components/CardBasic.vue";
-import SvgIcon from "@/components/SvgIcon.vue";
+import varDim from "./dim.module.scss";
+import varColor from "./color.module.scss";
+import CardBasic from "@/components/CardBasic/CardBasic.vue";
+import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 
 const wrapperRef = ref<HTMLDivElement | null>(null);
 
 const { config } = useConfig();
-const { fontOptions } = useFont();
+const { fontOptions, findFontGroup } = useFont();
 const { selectorVisible, closeSelector } = useFontSelector();
 
 const dialogStyle = computed(() => {
   return {
-    maxHeight: `calc(100vh - ${wrapperRef.value?.offsetTop}px - ${variables.dialog_span_bottom} - ${variables.dialog_padding_y} * 2)`,
+    maxHeight: `calc(100vh - ${wrapperRef.value?.offsetTop}px - ${varDim["dialog-span-bottom"]} - ${varDim["dialog-padding-y"]} * 2)`,
   };
 });
 
@@ -22,23 +24,40 @@ const changeFont = (fontOption: FontNode) => {
   config.value.font = fontOption;
   closeSelector();
 };
+
+const selectedFontGroup = computed(() => findFontGroup(config.value.font.tag));
+
+const fontGroupIconColor = computed(() => {
+  return {
+    default: getThemeColor(varColor, "group-icon-default-color"),
+    active: getThemeColor(varColor, "group-icon-active-color"),
+  };
+});
 </script>
 
 <template>
-  <div ref="wrapperRef" class="selector-wrapper">
+  <div ref="wrapperRef" class="selector-wrapper select-none">
     <CardBasic v-if="selectorVisible" class="selector-dialog">
-      <div class="content scrollbar" :style="{ ...dialogStyle }">
+      <div class="content scrollbar flex flex-col" :style="{ ...dialogStyle }">
         <div
           v-for="(fontGroup, groupIndex) in fontOptions"
           :key="groupIndex"
           class="group flex flex-row"
+          :class="{ active: fontGroup.id === selectedFontGroup }"
         >
-          <SvgIcon
-            class="icon flex-none"
-            :color="variables.dialog_icon_color"
-            :icon-src="fontGroup.icon!"
-          />
-          <div class="list">
+          <div class="icon flex-none">
+            <SvgIcon
+              class="icon-img"
+              :color="
+                fontGroupIconColor[
+                  fontGroup.id === selectedFontGroup ? 'active' : 'default'
+                ]
+              "
+              :icon-src="fontGroup.icon!"
+            />
+          </div>
+          <div class="separator flex-none">&nbsp;</div>
+          <div class="list flex-auto">
             <div
               v-for="(fontItem, itemIndex) in fontGroup.children"
               :key="itemIndex"
@@ -46,7 +65,7 @@ const changeFont = (fontOption: FontNode) => {
               :class="{ active: fontItem.tag === config.font.tag }"
               @click="changeFont(fontItem)"
             >
-              {{ fontItem.label }}
+              {{ fontItem.abbr || fontItem.label }}
             </div>
           </div>
         </div>
@@ -56,49 +75,64 @@ const changeFont = (fontOption: FontNode) => {
 </template>
 
 <style scoped lang="scss">
-@use "sass:math";
-@use "@/assets/vars/color.scss" as *;
 @use "@/assets/effects/scrollbar.scss";
-@use "./dialog.scss" as *;
+@use "@/assets/effects/theme.scss";
+@use "./dim.scss" as *;
+@use "./color.scss" as *;
 @include scrollbar.scrollbar;
 
-$list-span: 4.44rem;
-$list-line-height: 3.24rem;
-$list-font-size: 1.6rem;
-$list-logo-width: 9.44rem;
+@include theme.themeify($colors) {
+  .selector-wrapper {
+    position: relative;
+  }
 
-.selector-wrapper {
-  position: relative;
-}
+  .selector-dialog {
+    position: absolute;
+    width: 100%;
+    z-index: 100000000;
+    padding: $dialog-padding-y $dialog-padding-x !important;
 
-.selector-dialog {
-  position: absolute;
-  width: 100%;
-  z-index: 100000000;
-  padding: $dialog-padding-y $dialog-padding-x !important;
+    .content {
+      overflow-y: auto;
+      row-gap: $list-gap;
 
-  .content {
-    overflow-y: auto;
+      .group {
+        align-items: center;
 
-    .group {
-      column-gap: $list-span;
-      align-items: start;
+        &.active {
+          .separator {
+            background-color: theme.t("group-separator-active-color");
+          }
+        }
 
-      & + .group {
-        border-top: 0.1rem solid $color-gray-6;
-      }
+        .icon {
+          width: $list-logo-space;
+          display: flex;
+          .icon-img {
+            margin: 0 auto;
+            width: $list-logo-width;
+          }
+        }
+        .separator {
+          width: $list-separator-width;
+          align-self: stretch;
+          background-color: theme.t("group-separator-default-color");
+        }
 
-      .icon {
-        width: $list-logo-width;
-      }
-
-      .list {
-        .item {
-          font-size: $list-font-size;
-          line-height: $list-line-height;
-          color: $color-gray-2;
-          &.active {
-            color: $color-primary-1;
+        .list {
+          padding-left: $list-item-indent;
+          .item {
+            font-size: $list-item-font-size;
+            line-height: $list-item-line-height;
+            overflow: hidden;
+            word-break: break-all;
+            color: theme.t("item-text-default-color");
+            & + .item {
+              margin-top: $list-item-gap;
+            }
+            &.active {
+              color: theme.t("item-text-active-color");
+            }
           }
         }
       }

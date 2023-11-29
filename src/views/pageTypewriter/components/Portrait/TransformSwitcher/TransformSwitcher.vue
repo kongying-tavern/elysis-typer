@@ -2,10 +2,12 @@
 import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
 import { useConfig, useFontSelector } from "../../../hooks";
-import variables from "./variables.module.scss";
-import SvgIcon from "@/components/SvgIcon.vue";
-import ButtonBasic from "@/components/ButtonBasic.vue";
-import ImgContentArrow from "../../../assets/convert-arrow.svg";
+import { getThemeColor } from "@/assets/effects/theme";
+import varColor from "./color.module.scss";
+import DropdownArrow from "@/components/DropdownArrow/DropdownArrow.vue";
+import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
+import ButtonBasic from "@/components/ButtonBasic/ButtonBasic.vue";
+import ImgIconContentArrow from "../../../assets/icon-convert-arrow.svg";
 
 const { config } = useConfig();
 const { selectorVisible, toggleSelector } = useFontSelector();
@@ -16,12 +18,13 @@ const directionClass = computed(() => {
   };
 });
 
-const selectorArrowClass = computed(() => {
-  return {
-    "dropdown-arrow": true,
-    "dropdown-expanded": selectorVisible.value,
-  };
-});
+const convertArrowColor = computed(() =>
+  getThemeColor(varColor, "conv-arrow-color"),
+);
+
+const selectorArrowColor = computed(() =>
+  getThemeColor(varColor, "dropdown-arrow-color"),
+);
 
 const switchConvertDirection = () => {
   if (config.value.convertDirection === ConfigConvertDirectionEnum.FROM_ENG) {
@@ -33,20 +36,25 @@ const switchConvertDirection = () => {
 </script>
 
 <template>
-  <div class="switcher-wrapper flex" :class="{ ...directionClass }">
+  <div class="switcher-wrapper flex select-none" :class="{ ...directionClass }">
     <ButtonBasic
-      class="font-select-btn flex-auto"
-      :class="{ ...selectorArrowClass }"
+      class="flex-auto"
       size="large"
       type="primary"
       @click="toggleSelector()"
     >
       {{ config.font.abbr || config.font.label }}
+      <DropdownArrow
+        class="dropdown-arrow"
+        :expanded="selectorVisible"
+        :expanded-color="selectorArrowColor"
+        :collapsed-color="selectorArrowColor"
+      />
     </ButtonBasic>
     <SvgIcon
-      class="arrow flex-none cursor-pointer"
-      :icon-src="ImgContentArrow"
-      :color="variables.arrow_color"
+      class="conv-arrow flex-none cursor-pointer"
+      :icon-src="ImgIconContentArrow"
+      :color="convertArrowColor"
       @click="switchConvertDirection()"
     />
     <ButtonBasic class="flex-auto" size="large" :clickable="false">
@@ -57,11 +65,13 @@ const switchConvertDirection = () => {
 
 <style scoped lang="scss">
 @use "@/assets/vars/color.scss" as *;
-@use "../assets/dropdown-arrow.scss";
-@include dropdown-arrow.arrow;
+
+$column-gap: 1.72rem;
+$dropdown-arrow-gap: 0.36rem;
+$conv-arrow-width: 2.96rem;
 
 .switcher-wrapper {
-  column-gap: 1.72rem;
+  column-gap: $column-gap;
   justify-content: center;
 
   &.from-eng {
@@ -71,12 +81,12 @@ const switchConvertDirection = () => {
     flex-direction: row;
   }
 
-  .font-select-btn {
-    @include dropdown-arrow.extend(0.36rem, $color-white);
+  .dropdown-arrow {
+    margin-left: $dropdown-arrow-gap;
   }
 
-  .arrow {
-    width: 2.96rem;
+  .conv-arrow {
+    width: $conv-arrow-width;
   }
 }
 </style>

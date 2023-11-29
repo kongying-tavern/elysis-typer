@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { ConfigConvertDirectionEnum } from "@/shared";
+import { getThemeColor } from "@/assets/effects/theme";
 import { useConfig, useTextInput } from "../../../hooks";
-import variables from "./variables.module.scss";
-import CardBasic from "@/components/CardBasic.vue";
-import TextAreaBasic from "@/components/TextAreaBasic.vue";
-import SvgIcon from "@/components/SvgIcon.vue";
-import ImgClose from "../../../assets/close.svg";
+import varColor from "./color.module.scss";
+import CardBasic from "@/components/CardBasic/CardBasic.vue";
+import TextAreaBasic from "@/components/TextAreaBasic/TextAreaBasic.vue";
+import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
+import ImgIconClose from "../../../assets/icon-close.svg";
 
 const { config } = useConfig();
 const { text, clear } = useTextInput();
@@ -19,6 +20,10 @@ const fontStyle = computed(() => {
   }
   return {};
 });
+
+const clearButtonColor = computed(() =>
+  getThemeColor(varColor, "clear-btn-color"),
+);
 </script>
 
 <template>
@@ -33,8 +38,8 @@ const fontStyle = computed(() => {
     <div class="action-wrapper flex-none">
       <SvgIcon
         class="action-button"
-        :color="variables.clear_btn_color"
-        :icon-src="ImgClose"
+        :color="clearButtonColor"
+        :icon-src="ImgIconClose"
         @click="clear()"
       />
     </div>
@@ -42,13 +47,16 @@ const fontStyle = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@use "@/assets/vars/color.scss" as *;
+@use "@/assets/effects/theme.scss";
 @use "../assets/action-wrapper.scss";
+@use "./color.scss" as *;
 @include action-wrapper.action-wrapper;
 
-.textarea {
-  &:focus-within {
-    outline: 0.1rem solid $color-primary-2;
+@include theme.themeify($colors) {
+  .textarea {
+    &:focus-within {
+      outline: 0.1rem solid theme.t("focus-outline-color");
+    }
   }
 }
 </style>

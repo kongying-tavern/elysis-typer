@@ -1,0 +1,12 @@
+@use "@/assets/vars/color.scss" as *;
+
+$colors-light: (
+  layout-bg-color: $color-blue-1,
+);
+$colors-dark: (
+  layout-bg-color: $color-blue-1,
+);
+$colors: (
+  light: $colors-light,
+  dark: $colors-dark,
+);

@@ -1,0 +1,7 @@
+@use "./dim.scss" as *;
+
+:export {
+  dialog-span-bottom: $dialog-span-bottom;
+  dialog-padding-x: $dialog-padding-x;
+  dialog-padding-y: $dialog-padding-y;
+}

@@ -5,10 +5,14 @@ export interface FontGroupNode {
   children: FontNode[];
 }
 
+export interface FontNodeMeta {
+  allowCapsLock?: boolean;
+}
+
 export interface FontNode {
   tag: string;
   label: string;
   abbr?: string;
   url: string;
-  meta: { [key: string]: string };
+  meta?: FontNodeMeta;
 }

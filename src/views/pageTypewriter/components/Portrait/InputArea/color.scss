@@ -1,0 +1,14 @@
+@use "@/assets/vars/color.scss" as *;
+
+$colors-light: (
+  clear-btn-color: $color-gray-1,
+  focus-outline-color: $color-blue-3,
+);
+$colors-dark: (
+  clear-btn-color: $color-gray-1,
+  focus-outline-color: $color-blue-3,
+);
+$colors: (
+  light: $colors-light,
+  dark: $colors-dark,
+);

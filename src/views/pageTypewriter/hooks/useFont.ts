@@ -1,3 +1,4 @@
+import { computed } from "vue";
 import type { FontGroupNode, FontNode } from "@/shared";
 import ImgLogoGenshin from "../assets/logo-genshin.svg";
 import ImgLogoStarrail from "../assets/logo-starrail.svg";
@@ -24,42 +25,36 @@ const fontOptions: FontGroupNode[] = [
         label: "提瓦特文字",
         abbr: "提瓦特文",
         url: FontGsTevat,
-        meta: {},
       },
       {
         tag: "gs-khaenriah",
         label: "坎瑞亚文字",
         abbr: "坎瑞亚文",
         url: FontGsKhaenriah,
-        meta: {},
       },
       {
         tag: "gs-khaenriah-chasm",
         label: "坎瑞亚文字 - 层岩巨渊变体",
         abbr: "坎瑞亚层岩变体",
         url: FontGsKhaenriahChasm,
-        meta: {},
       },
       {
         tag: "gs-inazuma",
         label: "稻妻文字",
         abbr: "稻妻文",
         url: FontGsInazuma,
-        meta: {},
       },
       {
         tag: "gs-sumeru",
         label: "须弥文字",
         abbr: "须弥文",
         url: FontGsSumeru,
-        meta: {},
       },
       {
         tag: "gs-deshret",
         label: "赤冠文字",
         abbr: "赤冠文",
         url: FontGsDeshret,
-        meta: {},
       },
     ],
   },
@@ -72,9 +67,14 @@ const fontOptions: FontGroupNode[] = [
         tag: "sr-starrail",
         label: "星穹铁道文字",
         url: FontSrStarrail,
-        meta: {},
+        meta: { allowCapsLock: true },
       },
-      { tag: "sr-luofu", label: "罗浮文字", url: FontSrLuofu, meta: {} },
+      {
+        tag: "sr-luofu",
+        label: "罗浮文字",
+        url: FontSrLuofu,
+        meta: { allowCapsLock: true },
+      },
     ],
   },
   {
@@ -82,13 +82,29 @@ const fontOptions: FontGroupNode[] = [
     label: "绝区零",
     icon: ImgLogoZzz,
     children: [
-      { tag: "zzz-a", label: "绝区零变体一", url: FontZzzA, meta: {} },
-      { tag: "zzz-b", label: "绝区零变体二", url: FontZzzB, meta: {} },
+      { tag: "zzz-a", label: "绝区零变体一", url: FontZzzA },
+      { tag: "zzz-b", label: "绝区零变体二", url: FontZzzB },
     ],
   },
 ];
 
 const fontDefaultOption: FontNode = fontOptions[0].children[0];
+
+const fontGroupMap = computed(() => {
+  const map: { [key: string]: string } = {};
+  for (const fontGroup of fontOptions) {
+    const groupId: string = fontGroup.id || "";
+    for (const fontItem of fontGroup.children) {
+      const fontTag = fontItem.tag;
+      map[fontTag] = groupId;
+    }
+  }
+  return map;
+});
+
+const findFontGroup = (fontTag: string): string => {
+  return fontGroupMap.value[fontTag] || "";
+};
 
 const installFonts = async () => {
   for (const fontGroup of fontOptions) {
@@ -101,5 +117,10 @@ const installFonts = async () => {
 };
 
 export const useFont = () => {
-  return { fontOptions, fontDefaultOption, installFonts };
+  return {
+    fontOptions,
+    fontDefaultOption,
+    findFontGroup,
+    installFonts,
+  };
 };

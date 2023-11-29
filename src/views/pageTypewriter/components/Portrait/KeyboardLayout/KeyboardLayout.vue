@@ -2,7 +2,7 @@
 import _ from "lodash";
 import { computed } from "vue";
 import { useKeyboardLayout } from "../../../hooks";
-import CardBasic from "@/components/CardBasic.vue";
+import CardBasic from "@/components/CardBasic/CardBasic.vue";
 import KeyboardKey from "./KeyboardKey.vue";
 
 const { keyboardLayout, keyboardKeys, keyboardVisible } = useKeyboardLayout();
@@ -28,7 +28,7 @@ const layoutStyles = computed(() => {
 </script>
 
 <template>
-  <CardBasic v-if="keyboardVisible" class="keyboard-card">
+  <CardBasic v-if="keyboardVisible" class="keyboard-card select-none">
     <div class="keyboard-wrapper" :style="{ ...layoutStyles }">
       <KeyboardKey
         v-for="(keyOptions, index) in keyboardKeys"
@@ -40,6 +40,5 @@ const layoutStyles = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@use "./layout.scss";
-@include layout.keyboard-wrapper;
+@use "./keyboard-layout.scss" as *;
 </style>

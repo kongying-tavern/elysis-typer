@@ -1,0 +1,8 @@
+@use "./dim.scss" as *;
+
+.keyboard-wrapper {
+  gap: $keyboard-gap-y $keyboard-gap-x;
+  display: grid;
+  margin: 0 auto;
+  max-width: $keyboard-max-width;
+}

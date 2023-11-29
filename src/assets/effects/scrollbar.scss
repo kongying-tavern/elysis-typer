@@ -1,34 +1,47 @@
-@use 'sass:math';
-@use '@/assets/vars/color.scss' as *;
+@use "sass:math";
+@use "@/assets/vars/color.scss" as *;
+@use "./theme.scss";
 
 $scrollbar-width: 0.4rem;
 $scrollbar-radius: math.div($scrollbar-width, 2);
-$scrollbar-color-track: $color-gray-4;
-$scrollbar-color-thumb: $color-gray-3;
+$scrollbar-colors-light: (
+  "scrollbar-track-color": $color-gray-4,
+  "scrollbar-thumb-color": $color-gray-3,
+);
+$scrollbar-colors-dark: (
+  "scrollbar-track-color": $color-gray-4,
+  "scrollbar-thumb-color": $color-gray-3,
+);
+$scrollbar-colors: (
+  light: $scrollbar-colors-light,
+  dark: $scrollbar-colors-dark,
+);
 
 @mixin scrollbar {
-  .scrollbar,
-  .scrollbar :deep(*) {
-    &::-webkit-scrollbar {
-      border-radius: $scrollbar-radius;
-      background-color: $scrollbar-color-track;
-    }
+  @include theme.themeify($scrollbar-colors) {
+    .scrollbar,
+    .scrollbar :deep(*) {
+      &::-webkit-scrollbar {
+        border-radius: $scrollbar-radius;
+        background-color: theme.t("scrollbar-track-color");
+      }
 
-    &::-webkit-scrollbar:horizontal {
-      height: $scrollbar-width;
-    }
+      &::-webkit-scrollbar:horizontal {
+        height: $scrollbar-width;
+      }
 
-    &::-webkit-scrollbar:vertical {
-      width: $scrollbar-width;
-    }
+      &::-webkit-scrollbar:vertical {
+        width: $scrollbar-width;
+      }
 
-    &::-webkit-scrollbar-button {
-      display: none;
-    }
+      &::-webkit-scrollbar-button {
+        display: none;
+      }
 
-    &::-webkit-scrollbar-thumb {
-      border-radius: $scrollbar-radius;
-      background-color: $scrollbar-color-thumb;
+      &::-webkit-scrollbar-thumb {
+        border-radius: $scrollbar-radius;
+        background-color: theme.t("scrollbar-thumb-color");
+      }
     }
   }
 }

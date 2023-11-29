@@ -1,0 +1,18 @@
+@use "@/assets/vars/color.scss" as *;
+
+$btn-colors-light: (
+  btn-default-fill-color: $color-white-1,
+  btn-default-text-color: $color-gray-2,
+  btn-primary-fill-color: $color-blue-2,
+  btn-primary-text-color: $color-white-1,
+);
+$btn-colors-dark: (
+  btn-default-fill-color: $color-white-1,
+  btn-default-text-color: $color-gray-2,
+  btn-primary-fill-color: $color-blue-2,
+  btn-primary-text-color: $color-white-1,
+);
+$btn-colors: (
+  light: $btn-colors-light,
+  dark: $btn-colors-dark,
+);

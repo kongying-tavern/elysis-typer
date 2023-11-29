@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import _ from "lodash";
-import { computed } from "vue";
+import { ref, computed } from "vue";
+import { useMousePressed } from "@vueuse/core";
+import type { MaybeElementRef } from "@vueuse/core";
 import { ConfigConvertDirectionEnum } from "@/shared";
-import type { KeyboardKeyOption } from "@/shared";
-import { useConfig, useTextInput } from "../../../hooks";
-import SvgIcon from "@/components/SvgIcon.vue";
+import type { KeyboardKeyDecoration, KeyboardKeyOption } from "@/shared";
+import { getThemeColor } from "@/assets/effects/theme";
+import { useConfig, useTextInput, useKeyboardLayout } from "../../../hooks";
+import varDim from "./dim.module.scss";
+import varColor from "./color.module.scss";
+import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
+
+const wrapperRef = ref<HTMLDivElement | null>(null);
 
 const props = defineProps<{
   options: KeyboardKeyOption;
@@ -12,6 +19,7 @@ const props = defineProps<{
 
 const { config } = useConfig();
 const { append } = useTextInput();
+const { keyboardState } = useKeyboardLayout();
 
 const widgetOptions = computed(() => {
   let defaultOptions: KeyboardKeyOption = {
@@ -19,8 +27,30 @@ const widgetOptions = computed(() => {
     keyCode: -1,
     input: undefined,
     displayMode: [],
+    iconSizeTag: "1x",
   };
   return _.defaults({}, props.options, defaultOptions) as KeyboardKeyOption;
+});
+
+const keyDecorate = computed(() => {
+  if (widgetOptions.value.decorate === undefined) {
+    return {} as KeyboardKeyDecoration;
+  } else if (typeof widgetOptions.value.decorate === "function") {
+    return widgetOptions.value.decorate(keyboardState.value, config.value.font);
+  } else {
+    return widgetOptions.value.decorate;
+  }
+});
+
+const { pressed: isActive } = useMousePressed({
+  target: wrapperRef as MaybeElementRef,
+  drag: false,
+});
+
+const activeClass = computed(() => {
+  return {
+    active: isActive.value,
+  };
 });
 
 const fontStyle = computed(() => {
@@ -38,36 +68,63 @@ const layoutStyle = computed(() => {
   };
 });
 
-const keyPress = () => {
+const keyIconColor = computed(() => {
+  if (isActive.value) {
+    return getThemeColor(varColor, "keyboard-key-icon-active-color");
+  } else if (keyDecorate.value.classes?.hold) {
+    return getThemeColor(varColor, "keyboard-key-icon-hold-color");
+  } else {
+    return getThemeColor(varColor, "keyboard-key-icon-default-color");
+  }
+});
+
+const keyText = computed(() => {
+  let text = "";
   if (widgetOptions.value.input === undefined) {
-    append(widgetOptions.value.text as string);
+    text = widgetOptions.value.text!;
   } else if (typeof widgetOptions.value.input === "string") {
-    append(widgetOptions.value.input as string);
-  } else if (typeof widgetOptions.value.input === "function") {
+    text = widgetOptions.value.input!;
+  }
+
+  if (config.value.font.meta?.allowCapsLock) {
+    if (keyboardState.value.capsLock) return text.toUpperCase();
+    else return text.toLowerCase();
+  } else {
+    return text.toUpperCase();
+  }
+});
+
+const keyPress = () => {
+  if (typeof widgetOptions.value.input === "function") {
     widgetOptions.value.input(widgetOptions.value);
+  } else {
+    append(keyText.value);
   }
 };
 </script>
 
 <template>
   <div
+    ref="wrapperRef"
+    :style="{ ...keyDecorate.styles, ...fontStyle, ...layoutStyle }"
     class="keyboard-component keyboard-widget keyboard-key cursor-pointer"
-    :style="{ ...fontStyle, ...layoutStyle }"
+    :class="{ ...keyDecorate.classes, ...activeClass }"
     @click="keyPress()"
   >
     <div v-if="widgetOptions.displayMode.indexOf('text') !== -1" class="text">
-      {{ widgetOptions.text }}
+      {{ keyText }}
     </div>
     <div v-if="widgetOptions.displayMode.indexOf('icon') !== -1" class="icon">
       <SvgIcon
         :icon-src="widgetOptions.icon!"
-        :color="(widgetOptions.iconColor as string)"
+        :color="keyIconColor"
+        :width="varDim[`keyboard-key-icon-width-${widgetOptions.iconSizeTag}`]"
+        height="auto"
       />
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-@use "./layout.scss";
-@include layout.keyboard-key;
+@use "./keyboard-key.scss" as *;
 </style>
