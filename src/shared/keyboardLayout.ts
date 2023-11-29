@@ -29,6 +29,7 @@ export interface KeyboardKeyOption {
   displayMode: KeyboardKeyDisplayType[];
   text?: string;
   icon?: string;
+  iconSizeTag?: string;
 }
 
 export interface KeyboardState {

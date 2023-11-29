@@ -1,0 +1,6 @@
+@use "./dim.scss" as *;
+
+:export {
+  keyboard-key-icon-width-1x: $keyboard-key-icon-width-1x;
+  keyboard-key-icon-width-2x: $keyboard-key-icon-width-2x;
+}

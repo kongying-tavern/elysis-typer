@@ -1,6 +1,4 @@
-$keyboard-gap-x: 0.24rem;
-$keyboard-gap-y: 0.4rem;
-$keyboard-max-width: 60rem;
+@use "./dim.scss" as *;
 
 .keyboard-wrapper {
   gap: $keyboard-gap-y $keyboard-gap-x;

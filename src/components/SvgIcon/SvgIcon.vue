@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, withDefaults } from "vue";
 
-const props = defineProps<{
+interface Props {
   iconSrc: string;
   color: string;
-}>();
+  width?: string;
+  height?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  width: "100%",
+  height: "100%",
+});
 
 const iconStyle = computed(() => {
   return {
@@ -12,11 +19,18 @@ const iconStyle = computed(() => {
     backgroundColor: props.color,
   };
 });
+
+const placeholderStyle = computed(() => {
+  return {
+    width: props.width,
+    height: props.height,
+  };
+});
 </script>
 
 <template>
   <div class="svg-icon" :style="{ ...iconStyle }">
-    <img :src="iconSrc" />
+    <img :style="{ ...placeholderStyle }" :src="iconSrc" />
   </div>
 </template>
 
@@ -29,9 +43,10 @@ const iconStyle = computed(() => {
   mask-size: 100% 100%;
 
   img {
-    position: relative;
+    display: block;
     width: 100%;
     height: 100%;
+    position: relative;
     visibility: hidden;
   }
 }

@@ -232,6 +232,7 @@ const keyboardKeys: KeyboardKeyOption[] = [
     input: "\n",
     displayMode: ["icon"],
     icon: ImgEnter,
+    iconSizeTag: "2x",
   },
   {
     type: "key",
@@ -242,6 +243,7 @@ const keyboardKeys: KeyboardKeyOption[] = [
     },
     displayMode: ["icon"],
     icon: ImgBackspace,
+    iconSizeTag: "2x",
   },
   {
     type: "key",

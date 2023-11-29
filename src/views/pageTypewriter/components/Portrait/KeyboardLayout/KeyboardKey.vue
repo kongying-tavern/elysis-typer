@@ -7,6 +7,7 @@ import { ConfigConvertDirectionEnum } from "@/shared";
 import type { KeyboardKeyDecoration, KeyboardKeyOption } from "@/shared";
 import { getThemeColor } from "@/assets/effects/theme";
 import { useConfig, useTextInput, useKeyboardLayout } from "../../../hooks";
+import varDim from "./dim.module.scss";
 import varColor from "./color.module.scss";
 import SvgIcon from "@/components/SvgIcon/SvgIcon.vue";
 
@@ -26,6 +27,7 @@ const widgetOptions = computed(() => {
     keyCode: -1,
     input: undefined,
     displayMode: [],
+    iconSizeTag: "1x",
   };
   return _.defaults({}, props.options, defaultOptions) as KeyboardKeyOption;
 });
@@ -113,7 +115,12 @@ const keyPress = () => {
       {{ keyText }}
     </div>
     <div v-if="widgetOptions.displayMode.indexOf('icon') !== -1" class="icon">
-      <SvgIcon :icon-src="widgetOptions.icon!" :color="keyIconColor" />
+      <SvgIcon
+        :icon-src="widgetOptions.icon!"
+        :color="keyIconColor"
+        :width="varDim[`keyboard-key-icon-width-${widgetOptions.iconSizeTag}`]"
+        height="auto"
+      />
     </div>
   </div>
 </template>

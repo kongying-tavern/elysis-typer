@@ -1,10 +1,6 @@
 @use "@/assets/effects/theme.scss";
+@use "./dim.scss" as *;
 @use "./color.scss" as *;
-
-$keyboard-key-radius: 0.4rem;
-$keyboard-key-height: 3.6rem;
-$keyboard-key-line-height: 1.6rem;
-$keyboard-key-font-size: 1.6rem;
 
 @include theme.themeify($colors) {
   .keyboard-key {
@@ -30,6 +26,7 @@ $keyboard-key-font-size: 1.6rem;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      display: flex;
     }
 
     &.active {
