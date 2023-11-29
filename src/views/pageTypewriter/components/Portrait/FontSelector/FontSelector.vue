@@ -107,8 +107,9 @@ const fontGroupIconColor = computed(() => {
 
         .icon {
           width: $list-logo-space;
-          text-align: center;
+          display: flex;
           .icon-img {
+            margin: 0 auto;
             width: $list-logo-width;
           }
         }
