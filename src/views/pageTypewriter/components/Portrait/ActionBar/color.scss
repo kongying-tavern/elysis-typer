@@ -1,10 +1,10 @@
 @use "@/assets/vars/color.scss" as *;
 
 $colors-light: (
-  keyboard-default-color: $color-gray-5,
-  keyboard-active-color: $color-blue-2,
-  arrow-default-color: $color-gray-5,
-  arrow-active-color: $color-blue-2,
+  keyboard-default-color: $color-gray-2,
+  keyboard-active-color: $color-blue-5,
+  arrow-default-color: $color-gray-2,
+  arrow-active-color: $color-blue-5,
 );
 $colors-dark: (
   keyboard-default-color: $color-white-1,
