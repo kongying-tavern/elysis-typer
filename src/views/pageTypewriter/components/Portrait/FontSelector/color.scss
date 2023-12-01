@@ -9,12 +9,12 @@ $colors-light: (
   item-text-active-color: $color-blue-2,
 );
 $colors-dark: (
-  group-icon-default-color: $color-gray-7,
-  group-icon-active-color: $color-blue-2,
-  group-separator-default-color: $color-gray-7,
-  group-separator-active-color: $color-blue-2,
+  group-icon-default-color: $color-gray-2,
+  group-icon-active-color: $color-blue-4,
+  group-separator-default-color: $color-gray-2,
+  group-separator-active-color: $color-blue-4,
   item-text-default-color: $color-gray-2,
-  item-text-active-color: $color-blue-2,
+  item-text-active-color: $color-blue-4,
 );
 $colors: (
   light: $colors-light,

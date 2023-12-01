@@ -7,10 +7,10 @@ $colors-light: (
   arrow-active-color: $color-blue-2,
 );
 $colors-dark: (
-  keyboard-default-color: $color-gray-5,
-  keyboard-active-color: $color-blue-2,
-  arrow-default-color: $color-gray-5,
-  arrow-active-color: $color-blue-2,
+  keyboard-default-color: $color-white-1,
+  keyboard-active-color: $color-blue-4,
+  arrow-default-color: $color-white-1,
+  arrow-active-color: $color-blue-4,
 );
 $colors: (
   light: $colors-light,
