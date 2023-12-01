@@ -2,13 +2,13 @@
 
 $textarea-colors-light: (
   textarea-bg-color: $color-white-1,
-  textarea-text-color: $color-gray-2,
-  textarea-placeholder-color: $color-gray-3,
+  textarea-text-color: $color-gray-1,
+  textarea-placeholder-color: $color-gray-2,
 );
 $textarea-colors-dark: (
-  textarea-bg-color: $color-white-1,
-  textarea-text-color: $color-gray-2,
-  textarea-placeholder-color: $color-gray-3,
+  textarea-bg-color: $color-black-3,
+  textarea-text-color: $color-white-1,
+  textarea-placeholder-color: $color-gray-1,
 );
 $textarea-colors: (
   light: $textarea-colors-light,

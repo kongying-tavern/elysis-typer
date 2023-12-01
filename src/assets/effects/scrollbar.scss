@@ -5,12 +5,12 @@
 $scrollbar-width: 0.4rem;
 $scrollbar-radius: math.div($scrollbar-width, 2);
 $scrollbar-colors-light: (
-  "scrollbar-track-color": $color-gray-4,
-  "scrollbar-thumb-color": $color-gray-3,
+  scrollbar-track-color: $color-gray-3,
+  scrollbar-thumb-color: $color-gray-2,
 );
 $scrollbar-colors-dark: (
-  "scrollbar-track-color": $color-gray-4,
-  "scrollbar-thumb-color": $color-gray-3,
+  scrollbar-track-color: $color-black-2,
+  scrollbar-thumb-color: $color-black-1,
 );
 $scrollbar-colors: (
   light: $scrollbar-colors-light,
