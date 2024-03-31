@@ -13,10 +13,6 @@ const env = loadEnv(
   "VITE_",
 );
 
-(async function () {
-  DownloadFonts();
-})();
-
 export default defineConfig({
   base: env.VITE_DIST_PATH || "./",
   server: {
@@ -31,6 +27,7 @@ export default defineConfig({
     AutoImport({
       imports: ["vue"],
     }),
+    DownloadFonts(),
   ],
   resolve: {
     alias: {
