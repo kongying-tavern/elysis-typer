@@ -1,5 +1,6 @@
 import type { Plugin } from "vite";
-import { fontDownloadConfig, getFontAssetUrls } from "./plugin";
+import { fontDownloadConfig } from "./config";
+import { getFontAssetUrls } from "./plugin";
 
 export default (): Plugin => {
   return {
