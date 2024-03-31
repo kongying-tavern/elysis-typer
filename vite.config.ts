@@ -4,6 +4,7 @@ import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import AutoImport from "unplugin-auto-import/vite";
+import DownloadFonts from "./build/download-fonts/index";
 
 // https://vitejs.dev/config/
 const env = loadEnv(
@@ -11,6 +12,10 @@ const env = loadEnv(
   resolve(process.cwd(), "env"),
   "VITE_",
 );
+
+(async function () {
+  DownloadFonts();
+})();
 
 export default defineConfig({
   base: env.VITE_DIST_PATH || "./",
