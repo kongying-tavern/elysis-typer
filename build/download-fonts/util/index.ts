@@ -1,2 +1,2 @@
-export * from "./useRelease";
-export * from "./useRegex";
+export * from "./release";
+export * from "./regex";
