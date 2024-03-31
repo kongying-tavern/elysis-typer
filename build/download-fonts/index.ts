@@ -1,5 +1,9 @@
 import { Octokit } from "@octokit/rest";
-import { getLatestReleaseId, saveLatestReleaseId, testRegex } from "./util";
+import {
+  getLatestReleaseId,
+  saveLatestReleaseId,
+  testRegex,
+} from "./util/index";
 import type {
   ReleaseRequestParam,
   ReleaseResponse,
